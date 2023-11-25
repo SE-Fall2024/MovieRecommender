@@ -37,4 +37,5 @@ def recommendForNewUser(user_rating):
     joinMoviesAndRecommendations.sort_values(
         by="recommended", ascending=False, inplace=True
     )
+    #print("returning value " ,[x for x in joinMoviesAndRecommendations["title"]][:201]) #~
     return [x for x in joinMoviesAndRecommendations["title"]][:201]
