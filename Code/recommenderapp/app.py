@@ -18,6 +18,10 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 # Replace 'YOUR_API_KEY' with your actual OMDB API key
 OMDB_API_KEY = 'b726fa05'
 
+with open('api_key.txt', 'r') as file: # Trailer API
+    api_key = file.read().strip()
+
+
 def get_movie_info(title):
     index=len(title)-6
     url = f"http://www.omdbapi.com/?t={title[0:index]}&apikey={OMDB_API_KEY}"
@@ -57,22 +61,61 @@ def landing_page():
 #     resp = {"recommendations": recommendations}
 #     return resp
 def predict():
-    data = json.loads(request.data)  # contains movies
+    data = json.loads(request.data)  # contains movies from the user
+    print("data ",data) #~
     data1 = data["movie_list"]
     training_data = []
     for movie in data1:
         movie_with_rating = {"title": movie, "rating": 5.0}
         training_data.append(movie_with_rating)
     recommendations = recommendForNewUser(training_data)
-    recommendations = recommendations[:10]
-
+    recommendations = recommendations[:10] # Top 10 recommended
+    print("recommendations Top 10", recommendations) #~
     for movie in recommendations:
         movie_info = get_movie_info(movie)
-        # print(movie_info['imdbRating'])
+        #print("movie_info", movie_info) #~
+
+        if(movie_info.get('imdbID')): # IMDB ID
+            imdb_id = movie_info['imdbID'] #~
+            #print("IMDB id = ", imdb_id)
+            url = f'https://api.themoviedb.org/3/find/{imdb_id}?external_source=imdb_id&api_key={api_key}'
+            resp = requests.get(url)
+            if resp.status_code == 200:
+                res1=resp.json()
+                #print('res1', res1)
+
+                if(res1["movie_results"]):
+                    movie_id = res1["movie_results"][0]['id']
+                    print('movie id', movie_id)
+                    url2 = f'https://api.themoviedb.org/3/movie/{movie_id}/videos?language=en-US&api_key={api_key}'
+                    res_vid = requests.get(url2)
+                    if res_vid.status_code == 200:
+                        res_vid=res_vid.json()
+                        #print("res_vid",res_vid)
+                        if(res_vid['results']):
+                            url_vid = f"https://www.youtube.com/watch?v={res_vid['results'][0]['key']}"
+                            #print('url_vid_________________',url_vid)
+                        else:
+                            #print('empty video')
+                            url_vid = None
+                    else:
+                        url_vid = None
+                else:
+                    movie_id = None
+                    print('Empty list')
+                    url_vid=None
+            else:
+                url_vid = None
+                
+        else:
+            imdb_id = None #~
+            url_vid = None
+        #print(movie_info['imdbRating']) 
         if movie_info:
             movie_with_rating[movie+"-r"]=movie_info['imdbRating']
             movie_with_rating[movie+"-g"]=movie_info['Genre']
             movie_with_rating[movie+"-p"]=movie_info['Poster']
+            movie_with_rating[movie+"-u"]=url_vid
 
     resp = {"recommendations": recommendations, "rating":movie_with_rating}
     return resp
@@ -80,6 +123,7 @@ def predict():
 @app.route("/search", methods=["POST"])
 def search():
     term = request.form["q"]
+    print("term= ", term) #~
     search = Search()
     filtered_dict = search.resultsTop10(term)
     resp = jsonify(filtered_dict)
