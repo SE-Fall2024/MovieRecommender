@@ -51,6 +51,7 @@
                         <h4>{{ movie.title }}</h4>
                         <p>Rating: {{ movie.rating }}</p>
                         <p>IMDb Rating: {{ movie.imdbRating }}</p>
+                       
                         <!-- Add more IMDb info fields as needed -->
                     </div>
                     {% endfor %}
@@ -310,6 +311,13 @@
                         var radioButtons = document.createElement('div');
                         radioButtons.className = 'radio-buttons';
 
+                        var trailer = document.createElement('a');
+                        trailer.className = 'card-text'
+                        trailer.innerHTML = '<div width = "10px" height="10px" style="border: 1px solid #FFF; text-align: center; "><a href= '+ response['rating'][element + "-u"] +
+                            ' target= "_blank" style="color:white; font-size: 20px; text-decoration:None; "> Play Trailer </a>';
+                       // card.appendChild(trailer);
+                       
+
                         var QuestionLabel = document.createElement('label');
                         QuestionLabel.className = 'radio-inline';
                         QuestionLabel.innerHTML = '<h4>Give Feedback:';
@@ -333,8 +341,10 @@
 
                         cardBody.appendChild(title);
                         cardBody.appendChild(imdbRating);
+                        cardBody.appendChild(trailer);
                         cardBody.appendChild(genre);
                         cardBody.appendChild(radioButtons);
+                        
 
                         card.appendChild(cardBody);
                         document.getElementById('predictedMovies').appendChild(card);
