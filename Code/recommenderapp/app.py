@@ -1,5 +1,11 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, url_for,redirect
 from flask_cors import CORS, cross_origin
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import InputRequired, Length, ValidationError
+
 import json
 import sys
 import csv
@@ -12,8 +18,45 @@ from search import Search
 import requests
 
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
+print(app.config["SQLALCHEMY_DATABASE_URI"] )
+app.config['SECRET_KEY'] = 'thisisasecretkey'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+@app.route('/logout', methods=['GET','POST'])
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), nullable=False)
+    password = db.Column(db.String(80), nullable=False)
+
+class LoginForm(FlaskForm):
+    userid = StringField(validators=[
+                           InputRequired()], render_kw={"placeholder": "UserID"})
+
+    password = PasswordField(validators=[
+                             InputRequired()], render_kw={"placeholder": "Password"})
+
+    submit = SubmitField('Login')
+
 app.secret_key = "secret key"
 CORS(app, resources={r"/*": {"origins": "*"}})
+
+
 
 # Replace 'YOUR_API_KEY' with your actual OMDB API key
 OMDB_API_KEY = 'b726fa05'
@@ -36,9 +79,35 @@ def get_movie_info(title):
     else:
         return  { 'Title': title, 'imdbRating':"N/A",'Genre':'N/A', "Poster":"https://www.creativefabrica.com/wp-content/uploads/2020/12/29/Line-Corrupted-File-Icon-Office-Graphics-7428407-1.jpg"}
 
-@app.route("/")
+@app.route("/landing_page", methods =['GET', 'POST'])
+@login_required
 def landing_page():
     return render_template("landing_page.html")
+
+# @app.route("/")#~
+# def home():
+#    return  render_template("home.html")
+
+@app.route("/", methods =['GET', 'POST'])#~
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(id = form.userid.data).first()
+        #print(user.id)
+        if user:
+            #print("user.id, user.password" ,user.id, user.password)
+            #print("form.password", form.password.data)
+            if user.password.__eq__(form.password.data):
+                print('equal')
+                login_user(user)
+                return redirect(url_for('landing_page'))    
+            else:
+                print('not equal')
+    return  render_template("login.html", form = form)
+
+# @app.route("/register")#~
+# def register():
+#     return  render_template("register.html")
 
 
 @app.route("/predict", methods=["POST"])
@@ -61,7 +130,7 @@ def landing_page():
 #     resp = {"recommendations": recommendations}
 #     return resp
 def predict():
-    data = json.loads(request.data)  # contains movies from the user
+    data = json.loads(request.data)  # contains movies inputted by the user
     print("data ",data) #~
     data1 = data["movie_list"]
     training_data = []
@@ -141,6 +210,7 @@ def feedback():
 @app.route("/success")
 def success():
     return render_template("success.html")
+
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
