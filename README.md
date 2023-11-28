@@ -96,7 +96,7 @@ Make sure you taste your own medicine first and take into account other peoples 
 <details>
 <summary>Python</summary>
 
-Python is a high-level, general-purpose programming language known for its simplicity and readability. It's a widely used language for web development, data analysis, artificial intelligence, and more.
+Python is a high-level, general-purpose programming language known for its simplicity and readability. It is often used to build websites and software, automate tasks, conduct data anaysis and more.
 
 ![Python](https://media.giphy.com/media/2vnId4IaAjIGZd2EWC/giphy.gif)
 </details>
