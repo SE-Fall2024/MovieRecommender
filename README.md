@@ -41,7 +41,7 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 
 
 ## What new? :blush:
-https://giphy.com/gifs/rockstargames-gta-trilogy-gtatrilogy-DbVUJGG2cWkEbFzdKP
+file:///Users/challasaicharitha/Downloads/giphy.gif
 
 ## Future Project Plan 🔮
 
