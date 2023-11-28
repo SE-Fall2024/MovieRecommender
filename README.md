@@ -53,7 +53,7 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 <img width="400" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
 
 ## Sneak peak! :wink:
-<img width="400" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
+<img width="400" height="250" alt="color picker" src="asset/ui.jpeg" /><br><br>
 
 ## Future Project Plan 🔮
 
