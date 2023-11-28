@@ -4,19 +4,74 @@
 <head>
     <title>Movie Recommendations</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Pacifico&display=swap" rel="stylesheet">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
 </head>
 
 
 <body>
+
+    <!-- Phase 3 changes -->
+    
+    <div class="navbar ">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo">CineVerse</h1>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item active">Home</li>
+                    <li class="menu-list-item">Movies</li>
+                    <li class="menu-list-item">Series</li>
+                    <li class="menu-list-item">Popular</li>
+                    <li class="menu-list-item">Trends</li>
+
+                </ul>
+            </div>
+            <div class="profile-container">
+                <img class="profile-picture" src="https://img.freepik.com/premium-vector/hand-drawing-cartoon-girl-cute-girl-drawing-profile-picture_488586-692.jpg?w=2000" alt="">
+                <div class="profile-text-container">
+                    <span class="profile-text">Profile</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <i class="left-menu-icon fas fa-search"></i>
+        <i class="left-menu-icon fas fa-home"></i>
+        <i class="left-menu-icon fas fa-users"></i>
+        <i class="left-menu-icon fas fa-bookmark"></i>
+        <i class="left-menu-icon fas fa-tv"></i>
+        <i class="left-menu-icon fas fa-hourglass-start"></i>
+        <i class="left-menu-icon fas fa-shopping-cart"></i>
+    </div>
+
+    
+
+
+
+
     <!-- <div class="container"> -->
         <a href="/">
     <div id="errorMessage" class="error-card">
@@ -27,56 +82,260 @@
     </div>
 </a>
 <!-- </div> -->
-    <div id="main">
-    <nav class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.5);">
+    <!-- <div id="main"> -->
+    <!-- <nav class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.5);">
         <div class="container justify-content-center">
             <div class="navbar-header text-center" style="text-align:center;">
                 <h1 style="color:#d9534f; font-size: 30px !important; font-weight: 800; margin-left:400px;" class="navbar-brand" href="#">MOVIE RECOMMENDATIONS</h1>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
-    <div class="container">
-        
-        <div class="row">
-            <div class="col-md-6">
-                <h2 style="color:#ebe5e6; font-size: 24px; font-weight: bold;">Please select movies for training</h2>
-                <p>
-                    <label style="color:#ebe5e6; font-weight: bold;">Search Here</label>&nbsp;&nbsp;<input type="text" name="search" id="searchBox" />
-                </p>
-                <h2 style="color:#ebe5e6; font-size: 24px; font-weight: bold;">Selected movies:</h2>
-                <div class="card-container" id="selectedMovies">
-                    {% for movie in training_data %}
-                    <div class="card">
-                        <h4>{{ movie.title }}</h4>
-                        <p>Rating: {{ movie.rating }}</p>
-                        <p>IMDb Rating: {{ movie.imdbRating }}</p>
-                       
-                        <!-- Add more IMDb info fields as needed -->
+    <div class="container-fluid">
+        <div class="content-container">
+            <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('https://imagedelivery.net/9sCnq8t6WEGNay0RAQNdvQ/UUID-cl9jtkg6m1802uhoqwabs6gm4/public'); background-size:cover;">
+
+                <div class="row">
+                    <!-- <div class="col-md-6">
+                        <img class="featured-title" src="https://c4.wallpaperflare.com/wallpaper/449/429/294/stranger-things-netflix-poster-wallpaper-preview.jpg" alt="">
+                <p class="featured-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illo dolor
+                    deserunt nam assumenda ipsa eligendi dolore</p>
+                    
+
+                    </div> -->
+                    
+                    <div class="col-md-12 top-div">
+                        <h1 class="tagline">Unlock your Cinematic Journey,<br/> one recommendation at a time!</h1>
+                        <input  type="button" class="btn btn-danger" value="Start Now">
+
                     </div>
-                    {% endfor %}
+
                 </div>
-                <input type="button" class="btn btn-danger" name="predict" id="predict" value="Predict">
+                
             </div>
-            <div class="col-md-6">
-                <h2 style="color:#ebe5e6; font-size: 24px; font-weight: bold;">Predicted Movies</h2>
-                <div class="scrollable-card-container">
+
+            <div style="margin-left: 5%; margin-bottom: 5%;margin-top: 5%;">
+                <h2 style="color:#ebe5e6; font-size: 24px; font-weight: bold;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Please select movies </h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            &nbsp;&nbsp;<input type="text" name="search" id="searchBox" />
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <input style="margin-top: 3%;" type="button" class="btn btn-danger" name="predict" id="predict" value="Predict">
+                    </div>
+
+                </div>
+                
+        <h2 style="color:#ebe5e6; font-size: 24px; font-weight: bold;">Selected movies:</h2>
+        <div class="card-container" id="selectedMovies">
+            {% for movie in training_data %}
+            <div class="card">
+                <h4>{{ movie.title }}</h4>
+                <p>Rating: {{ movie.rating }}</p>
+                <p>IMDb Rating: {{ movie.imdbRating }}</p>
+               
+                <!-- Add more IMDb info fields as needed -->
+            </div>
+            {% endfor %}
+        </div>
+        
+
+            </div>
+
+
+
+            <div>
+                <h2 style="color:#ebe5e6; font-size: 24px; font-weight: bold;margin-left: 5%;">HERE ARE YOUR MOVIE RECOMMENDATIONS!</h2>
+            <div id="predictedMovies" class="scrolling-wrapper-flexbox">
+                <!-- <div id="predictedMovies" class="card-container"></div> -->
+                
+            </div>
+            <input style="margin-left: 5%; margin-bottom: 5%;" type="button" class="btn btn-danger" name="feedback" id="feedback" value="Give Feedback">
+
+            </div>
+            
+
+
+
+
+            <!-- <div>
+                <h2 style="color:#ebe5e6; font-size: 24px; font-weight: bold;">HERE ARE YOUR MOVIE RECOMMENDATIONS!</h2>
+                <div class="scrolling-wrapper-flexbox">
                     <div id="predictedMovies" class="card-container"></div>
                 </div>
+               
                 <input type="button" class="btn btn-danger" name="feedback" id="feedback" value="Give Feedback">
-            </div>
+            </div> -->
+
         </div>
+        
+        
+        <!-- <div class="row">
+            
+            <div class="col-md-6">
+                
+                
+            </div>
+        </div> -->
     </div>
 
     <div id="dataCollected" class="container" style="display: none;">
         <h1 style="color:#ebe5e6; font-size: 24px; font-weight: bold;">Thanks!! Your response was stored.</h1>
         <input type="button" id="refreshPage" class="btn btn-danger" name="refreshPage" value="Take another attempt">
     </div>
-</div>
+<!-- </div> -->
     <style>
-          .error-card {
-            display: none; /* Initially hide the error card */
-            position: fixed;
+        .top-div{
+            text-align: center;
+            padding: 10px;
+        }
+        .tagline{
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 5rem;
+            color: white;
+            text-align: center;
+        }
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  position: sticky;
+  top: 0;
+  margin: 0px;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  height: 100%;
+  color: white;
+  font-family: "Sen", sans-serif;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo {
+  font-size: 30px;
+  color: #c9302c;
+  font-weight: bold;
+}
+
+.menu-container {
+  flex: 5;
+}
+
+.menu-list {
+  display: flex;
+  list-style: none;
+}
+
+.menu-list-item {
+  margin-right: 30px;
+}
+
+.menu-list-item.active {
+  font-weight: bold;
+}
+.profile-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+} 
+
+ .profile-text-container {
+  margin: 0 20px;
+}
+
+.profile-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sidebar {
+  width: 50px;
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.left-menu-icon {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.container {
+  background-color: #151515; 
+   /* width: 100%;  */
+   min-height: calc(100vh - 50px);
+  color: white;
+
+}
+.content-container {
+  margin-left: 10px;
+}
+.featured-content {
+  height: 50vh;
+  padding: 50px;
+}
+
+.featured-title {
+  width: 120px;
+}
+
+.featured-desc {
+  width: 500px;
+  color: lightgray;
+  margin: 30px 0;
+}
+
+.featured-button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+}
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .card {
+    flex: 0 0 auto;
+  }
+}
+
+
+
+
+           .error-card {
+            display: none; 
+             position: fixed;
             width: 350px;
             height: auto;
             top: 50%;
@@ -87,20 +346,18 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            z-index: 9999;
-        }
+            z-index: 9999; */
+        } 
 
         .error-content {
             text-align: center;
         }
-      .scrollable-card-container {
-        max-height: 400px;
-        overflow-y: auto;
-    }
+    
 
-    .card {
+
+    /* .card {
     width: 100%;
-    background-color: #888888;
+    background-color: black;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 10px;
@@ -108,24 +365,24 @@
     font-size: 24px;
     font-weight: bold;
     color: white;
-}
+    display: inline-block;
+}  */
 
     /* Add some spacing between cards */
-    .card-container .card:not(:last-child) {
+    /* .card-container .card:not(:last-child) {
         margin-bottom: 10px;
-    }
-        body {
+    }   */
+         body {
             font-family: 'Noto Sans', sans-serif;
             background-color: #141414;
             color: white;
             padding: 0px 0px 0px 0px;
-                /* background-image: url('https://wallpaperaccess.com/full/8212583.jpg'); /* Replace 'path_to_your_image.jpg' with the actual image URL */
-                background-size: cover;
+                 /*background-image: url('https://wallpaperaccess.com/full/8212583.jpg'); /* Replace 'path_to_your_image.jpg' with the actual image URL */
+                
             
-        }
-        body::after {
+        }  
+        /* body::after {
         content: "";
-        background: url("https://wallpaperaccess.com/full/8212583.jpg");
         opacity: 0.5;
         top: 0;
         left: 0;
@@ -133,13 +390,13 @@
         right: 0;
         position: absolute;
         z-index: -1;   
-        }
+        } */
 
-        .navbar {
+        /* .navbar {
             border-radius: 0;
-        }
+        } */
 
-        .navbar-brand {
+        /* .navbar-brand {
             font-size: 24px;
             font-weight: bold;
             color: rgb(229,9,20);
@@ -147,11 +404,9 @@
             float: none;
             padding: 15px 0;
             margin-left: 100px;
-        }
+        } */
 
-        .container {
-            padding: 20px;
-        }
+        
 
         h2 {
             color: #e50914;
@@ -175,16 +430,18 @@
 
         .card-container {
             display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: start;
         }
 
         .card {
-            width: 45%;
+            width: 10%;
+            height: 10%;
             margin-bottom: 20px;
-            background-color: #333 !important;
-            padding: 10px;
-            border-radius: 5px;
+            background-color: black !important;
+            padding: 5px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -199,7 +456,23 @@
             font-size: 18px;
             cursor: pointer;
         }
+
+        .radio-buttons{
+            display: flex;
+            flex-direction: column;
+  align-items: start;
+  justify-content: center;
+
+        }
+        .checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline {
+    margin-top: 0;
+    /* margin-left: 10px; */
+}
     </style>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 
@@ -207,6 +480,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
 
 <script>
+    
 
     $(document).ready(function () {
         function displayErrorMessage(message) {
@@ -284,8 +558,8 @@
                         var card = document.createElement('div');
                         card.className = 'card';
                         card.style.margin='2.5%'
-                        card.style.width = '45%';
-                        card.style.padding = '5%';
+                        card.style.width = '20%';
+                        card.style.padding = '2%';
 
                         var image = document.createElement('img');
                         image.src = response['rating'][element+"-p"];
@@ -296,15 +570,15 @@
                         var cardBody = document.createElement('div');
                         cardBody.className = 'card-body';
 
-                        var title = document.createElement('h3');
+                        var title = document.createElement('h4');
                         title.className = 'card-title';
                         title.textContent = element;
 
-                        var imdbRating = document.createElement('h5');
+                        var imdbRating = document.createElement('h6');
                         imdbRating.className = 'card-text';
                         imdbRating.textContent = 'imdb: ' + response['rating'][element + "-r"];
 
-                        var genre = document.createElement('h5');
+                        var genre = document.createElement('h6');
                         genre.className = 'card-text';
                         genre.textContent = 'Genre: ' + response['rating'][element + "-g"];
 
@@ -318,23 +592,23 @@
                        // card.appendChild(trailer);
                        
 
-                        var QuestionLabel = document.createElement('label');
-                        QuestionLabel.className = 'radio-inline';
-                        QuestionLabel.innerHTML = '<h4>Give Feedback:';
+                        // var QuestionLabel = document.createElement('label');
+                        // QuestionLabel.className = 'radio-inline';
+                        // QuestionLabel.innerHTML = '<h4>Give Feedback:';
 
                         var dislikeLabel = document.createElement('label');
                         dislikeLabel.className = 'radio-inline';
-                        dislikeLabel.innerHTML = '<input type="radio" name="i' + element + '" value="1"> Dislike';
+                        dislikeLabel.innerHTML = '<input type="radio" id ="dislike" name="' + element + '" value="1"> Dislike <br/>';
 
                         var yetToWatchLabel = document.createElement('label');
                         yetToWatchLabel.className = 'radio-inline';
-                        yetToWatchLabel.innerHTML = '<input type="radio" name="i' + element + '" value="2"> Yet to watch';
+                        yetToWatchLabel.innerHTML = '<input  type="radio" id="towatch" name="' + element + '" value="2"> Yet to watch <br/>';
 
                         var likeLabel = document.createElement('label');
                         likeLabel.className = 'radio-inline';
-                        likeLabel.innerHTML = '<input type="radio" name="i' + element + '" value="3"> Like';
+                        likeLabel.innerHTML = '<input type="radio" id="like" name="' + element + '" value="3"> Like <br/>';
                         
-                        radioButtons.appendChild(QuestionLabel);
+                        // radioButtons.appendChild(QuestionLabel);
                         radioButtons.appendChild(dislikeLabel);
                         radioButtons.appendChild(yetToWatchLabel);
                         radioButtons.appendChild(likeLabel);
@@ -364,38 +638,40 @@
         });
 
         $('#feedback').click(function(){
+           
             var myForm = $('fieldset');
-            var data = {};
+            var data = [];
             var labels = {
                 1: 'Dislike',
                 2: 'Yet to watch',
                 3: 'Like'
             };
-            for(var i=0;i<myForm.length;i++){
-                var input = $('#'+i).find('div').find('input:checked')[0].value;
-                var movieName = $('#'+i).find('div').find('li')[0].innerText;
-                data[movieName]=labels[input];
+            for(var i=0;i<10;i++){
+                var input = $('.radio-inline').find('input:checked');
+                data.push(input);
+                // var movieName = $('#'+i).find('div').find('li')[0].innerText;
+                // data[movieName]=labels[input];
             }
             console.log(data);
 
-            $.ajax({
-                type: "POST",
-                url: "/feedback",
-                dataType: "json",
-                contentType: "application/json;charset=UTF-8",
-                traditional: "true",
-                cache: false,
-                data: JSON.stringify(data),
-                success: function (response) {
-                    // console.log("->", response);
-                    // $("#dataCollected").css("display", "block");
-                    window.location.href="/success";
-                },
-                error: function (error) {
-                    console.log("ERROR ->" + error );
-                    displayErrorMessage("Please fill in all the fields");
-                }
-            });
+            // $.ajax({
+            //     type: "POST",
+            //     url: "/feedback",
+            //     dataType: "json",
+            //     contentType: "application/json;charset=UTF-8",
+            //     traditional: "true",
+            //     cache: false,
+            //     data: JSON.stringify(data),
+            //     success: function (response) {
+            //         // console.log("->", response);
+            //         // $("#dataCollected").css("display", "block");
+            //         window.location.href="/success";
+            //     },
+            //     error: function (error) {
+            //         console.log("ERROR ->" + error );
+            //         displayErrorMessage("Please fill in all the fields");
+            //     }
+            // });
 
         });
 
