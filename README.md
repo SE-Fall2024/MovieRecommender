@@ -39,6 +39,8 @@ Say hello to our Movie Recommender! 🚀<br>
 Just tell us what type of movies you like, and we'll serve up a handpicked list of 10 must-watch movies tailored to your taste. No more movie-night dilemmas! 🎬<br>
 Save time, ditch the hassle, and let Movie Recommender do the work for you. Movie night has never been this easy and exciting! 🌟<br>
 Your perfect movie is just a click away. Get started now and make every movie night a hit! 👏<br><br>
+## Sneak peak! :wink:
+<img width="400" height="250" alt="color picker" src="asset/ui.jpeg" /><br><br>
 ![Hurray](https://media.giphy.com/media/jwY84621p1hhnG0ANK/giphy.gif)
 
 
@@ -52,8 +54,7 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 6. Fixed bugs related to feedback of recommended movies.
 <img width="400" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
 
-## Sneak peak! :wink:
-<img width="400" height="250" alt="color picker" src="asset/ui.jpeg" /><br><br>
+
 
 ## Future Project Plan 🔮
 
