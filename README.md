@@ -17,10 +17,10 @@
 Discover Your Next Movie Night Gem!<br>
 Tired of endless scrolling, trying to find the perfect movie? 🍿<br><br>
 ## Sneak peak! :wink:
-<img width="600" height="250" alt="color picker" src="asset/ui.jpeg" /><br><br>
+<img width="500" height="250" alt="color picker" src="asset/ui.jpeg" /><br><br>
 
 
-<img width="600" height="250" alt="color picker" src="asset/ezgif.com-video-to-gif.gif" /><br><br>
+<img width="500" height="250" alt="color picker" src="asset/ezgif.com-video-to-gif.gif" /><br><br>
 
 # <b>Contents</b>
 
