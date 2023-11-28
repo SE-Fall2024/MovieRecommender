@@ -326,18 +326,14 @@ body {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-
-  .card {
+}
+.card {
     flex: 0 0 auto;
   }
-}
 
-
-
-
-           .error-card {
+.error-card {
             display: none; 
-             position: fixed;
+            position: fixed;
             width: 350px;
             height: auto;
             top: 50%;
@@ -348,10 +344,9 @@ body {
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            z-index: 9999; */
-        } 
-
-        .error-content {
+            z-index: 9999; 
+} 
+.error-content {
             text-align: center;
         }
     
@@ -558,6 +553,7 @@ body {
                         // fieldset.append(diventry);
                         // ulList.append(fieldset);
                         var card = document.createElement('div');
+                        card.id = "predict_movie"+i;
                         card.className = 'card';
                         card.style.margin='2.5%'
                         card.style.width = '20%';
@@ -572,7 +568,8 @@ body {
                         var cardBody = document.createElement('div');
                         cardBody.className = 'card-body';
 
-                        var title = document.createElement('h4');
+                        var title = document.createElement('h3');
+                        title.id = 'title';
                         title.className = 'card-title';
                         title.textContent = element;
 
@@ -594,9 +591,9 @@ body {
                        // card.appendChild(trailer);
                        
 
-                        // var QuestionLabel = document.createElement('label');
-                        // QuestionLabel.className = 'radio-inline';
-                        // QuestionLabel.innerHTML = '<h4>Give Feedback:';
+                        var QuestionLabel = document.createElement('label');
+                        QuestionLabel.className = 'radio-inline';
+                        QuestionLabel.innerHTML = '<h4>Give Feedback:';
 
                         var dislikeLabel = document.createElement('label');
                         dislikeLabel.className = 'radio-inline';
@@ -610,7 +607,7 @@ body {
                         likeLabel.className = 'radio-inline';
                         likeLabel.innerHTML = '<input type="radio" id="like" name="' + element + '" value="3"> Like <br/>';
                         
-                        // radioButtons.appendChild(QuestionLabel);
+                        radioButtons.appendChild(QuestionLabel);
                         radioButtons.appendChild(dislikeLabel);
                         radioButtons.appendChild(yetToWatchLabel);
                         radioButtons.appendChild(likeLabel);
@@ -624,8 +621,9 @@ body {
 
                         card.appendChild(cardBody);
                         document.getElementById('predictedMovies').appendChild(card);
-                        return card;
                         i+=1;
+                        return card;
+                        
                     });
 
                     // var li = $('<li/>').text()
@@ -642,38 +640,44 @@ body {
         $('#feedback').click(function(){
            
             var myForm = $('fieldset');
-            var data = [];
+            var data = {};
             var labels = {
                 1: 'Dislike',
                 2: 'Yet to watch',
                 3: 'Like'
             };
+            console.log("Length",myForm.length);
             for(var i=0;i<10;i++){
-                var input = $('.radio-inline').find('input:checked');
-                data.push(input);
-                // var movieName = $('#'+i).find('div').find('li')[0].innerText;
-                // data[movieName]=labels[input];
-            }
-            console.log(data);
+                console.log('In for loop');
+                var input = $('#predict_movie'+i).find('div').find('input:checked')[0].value;
+                var movieName = $('#predict_movie'+i).find('div').find('h3')[0].innerHTML
+                //var movieName = $('#predict_movie'+i).find('div').find('li')[0].innerText;
+                console.log("Print", input, movieName);
+                data[movieName]=labels[input];
 
-            // $.ajax({
-            //     type: "POST",
-            //     url: "/feedback",
-            //     dataType: "json",
-            //     contentType: "application/json;charset=UTF-8",
-            //     traditional: "true",
-            //     cache: false,
-            //     data: JSON.stringify(data),
-            //     success: function (response) {
-            //         // console.log("->", response);
-            //         // $("#dataCollected").css("display", "block");
-            //         window.location.href="/success";
-            //     },
-            //     error: function (error) {
-            //         console.log("ERROR ->" + error );
-            //         displayErrorMessage("Please fill in all the fields");
-            //     }
-            // });
+                var input = $('predictedMovies').find()
+                
+            }
+            console.log("DATA",data);
+
+            $.ajax({
+                type: "POST",
+                url: "/feedback",
+                dataType: "json",
+                contentType: "application/json;charset=UTF-8",
+                traditional: "true",
+                cache: false,
+                data: JSON.stringify(data),
+                success: function (response) {
+                    // console.log("->", response);
+                    // $("#dataCollected").css("display", "block");
+                    window.location.href="/success";
+                },
+                error: function (error) {
+                    console.log("ERROR ->" + error );
+                    displayErrorMessage("Please fill in all the fields");
+                }
+            });
 
         });
 
