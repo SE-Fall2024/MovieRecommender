@@ -52,6 +52,8 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 6. Fixed bugs related to feedback of recommended movies.
 <img width="400" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
 
+## Sneak peak! :wink:
+<img width="400" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
 
 ## Future Project Plan 🔮
 
