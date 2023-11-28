@@ -76,7 +76,7 @@ Make sure you taste your own medicine first and take into account other peoples 
 
 
 
-## Tech stack 👨‍💻
+## Tech stack used 👨‍💻
 <details>
 <summary>Python</summary>
 
