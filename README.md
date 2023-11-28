@@ -56,7 +56,7 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 4. Integrated a Database using SQL alchemy to store user related data and movies.
 5. Enhanced the user interface.
 6. Fixed bugs related to feedback of recommended movies.
-<img width="400" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
+<img width="500" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
 
 
 
