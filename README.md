@@ -41,9 +41,12 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 
 
 ## What's new? :blush:
-1. Integration of youtube api to provide trailer for the recommended movies.
-2. Build a new feature that exhibits diversity across genres, casting choices, and production styles.
-3. Allow users to create account and access their account history for previously recommended movies.
+1. Integration of youtube api to provide trailers for the recommended movies.
+2. Implemented User Authentication by developing a register and login page.
+3. Users are now able to create an account and access their account history (Liked movies, Disliked movies and movies yet to watch) for previously recommended movies.
+4. Integrated a Database using SQL alchemy to store user related data and movies.
+5. Enhanced the user interface.
+6. Fixed bugs related to feedback of recommended movies.
 
 
 ## Future Project Plan 🔮
