@@ -69,9 +69,6 @@ Make sure you taste your own medicine first and take into account other peoples 
 
 
 
-
-
-
 ## Working 📱
 
 - Below working displays the system also evaluates movie attributes such as genre, cast, director, and user-generated reviews. 
@@ -79,7 +76,7 @@ Make sure you taste your own medicine first and take into account other peoples 
 - This enables users to discover new films that align with their individual tastes, making the movie-watching experience more enjoyable and engaging. 
 - Furthermore, recommender systems often employ a feedback loop, where users' interactions and feedback help refine the recommendations over time, ensuring that the suggestions remain relevant.
 
-![Demo](https://github.com/MadhurDixit13/MovieRecommender/blob/master/asset/Front-page.gif?raw=true)<br><br>
+
 
 
 
@@ -142,7 +139,9 @@ JavaScript is a versatile and widely used programming language for adding intera
 1. `cd Code/recommenderapp`
 2. `python3 app.py`
 
-![Execution](https://raw.githubusercontent.com/MadhurDixit13/MovieRecommender/master/asset/execution.gif)
+## Follow these steps to run our project on your system! 🔮
+1. Clone the project onto your system.
+2. Incluse an api_key.txt file with the api key for the movie API - take a look at this link -> (https://developer.themoviedb.org/reference/intro/getting-started)
 
 
 ## Documentation 📚
