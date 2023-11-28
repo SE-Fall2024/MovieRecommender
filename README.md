@@ -51,11 +51,11 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 
 ## Future Project Plan 🔮
 
-Testing how good the Movie Recommender is :
+Following is what the future developers can add! :
 
-1. Integration of youtube api to provide trailer for the recommended movies.
+1. Create a dynamic movie list instead of using an existing movie csv file.
 2. Build a new feature that exhibits diversity across genres, casting choices, and production styles.
-3. Allow users to create account and access their account history for previously recommended movies.
+3. Enhance the user profile page.
 
 
 Note: Our system can be virtually tested through Github Actions inbuilt feature of build and test queries using python.
@@ -65,7 +65,7 @@ Make sure you taste your own medicine first and take into account other peoples 
 
 ## Video ▶️ 
 
-[![Watch the video](https://markdown-videos-api.jorgenkh.no/youtube/uYQ4t7GOEyU)](https://youtu.be/uYQ4t7GOEyU)
+[![Watch the video](https://markdown-videos-api.jorgenkh.no/youtube/uYQ4t7GOEyU)](https://www.youtube.com/watch?v=fKRjYqZlOTY)
 
 
 
