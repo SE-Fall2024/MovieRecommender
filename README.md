@@ -141,7 +141,14 @@ JavaScript is a versatile and widely used programming language for adding intera
 
 ## Follow these steps to run our project on your system! 🔮
 1. Clone the project onto your system.
-2. Incluse an api_key.txt file with the api key for the movie API - take a look at this link -> (https://developer.themoviedb.org/reference/intro/getting-started)
+2. Incluse an api_key.txt file with the api key for the movie API - Take a look at this link: https://developer.themoviedb.org/reference/intro/getting-started
+3. Install the following packages:
+   a. `pip install flask-sqlalchemy`
+5. Follow these steps to create the database -> Execute in python terminal:
+   a. `from movierecommender import db`
+   b. `from movierecommender.models import User,Post`
+   c. `db.create_all()`
+6. Run `cd Code/recommenderapp` and `python3 app.py`
 
 
 ## Documentation 📚
