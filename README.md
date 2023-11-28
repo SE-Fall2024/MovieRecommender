@@ -40,8 +40,11 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 
 
 
-## What new? :blush:
-file:///Users/challasaicharitha/Downloads/giphy.gif
+## What's new? :blush:
+1. Integration of youtube api to provide trailer for the recommended movies.
+2. Build a new feature that exhibits diversity across genres, casting choices, and production styles.
+3. Allow users to create account and access their account history for previously recommended movies.
+
 
 ## Future Project Plan 🔮
 
