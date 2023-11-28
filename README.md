@@ -8,7 +8,8 @@
 
 
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/MadhurDixit13/MovieRecommender/graphs/commit-activity) [![Contributors Activity](https://img.shields.io/github/commit-activity/m/MadhurDixit13/MovieRecommender)](https://github.com/MadhurDixit13/MovieRecommender/pulse) ![GitHub issues](https://img.shields.io/github/issues/A1231/MovieRecommender)
+ ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/A1231/MovieRecommender)
+ ![GitHub issues](https://img.shields.io/github/issues/A1231/MovieRecommender)
  ![GitHub closed issues](https://img.shields.io/github/issues-closed/A1231/MovieRecommender)
  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)  [![Code Coverage](https://github.com/MadhurDixit13/MovieRecommender/actions/workflows/codecov.yml/badge.svg)](https://github.com/MadhurDixit13/MovieRecommender/actions/workflows/codecov.yml) [![codecov](https://codecov.io/gh/MadhurDixit13/MovieRecommender/graph/badge.svg?token=9NGWAJ7BST)](https://codecov.io/gh/MadhurDixit13/MovieRecommender) [![GitHub release](https://img.shields.io/github/release/git-ankit/MovieRecommender.svg)](https://GitHub.com/git-ankit/MovieRecommenderreleases/) [![black](https://img.shields.io/badge/StyleChecker-black-purple.svg)](https://pypi.org/project/black/) [![DOI](https://zenodo.org/badge/721365396.svg)](https://zenodo.org/doi/10.5281/zenodo.10212435)
 
