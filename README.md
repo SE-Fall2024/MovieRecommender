@@ -17,7 +17,7 @@
 
 Discover Your Next Movie Night Gem!<br>
 Tired of endless scrolling, trying to find the perfect movie? 🍿<br><br>
-<img width="400" height="250" alt="color picker" src="https://github.com/MadhurDixit13/MovieRecommender/blob/master/asset/Front-page.gif?raw=true" /><br><br>
+<img width="400" height="250" alt="color picker" src="asset/ezgif.com-video-to-gif.gif" /><br><br>
 
 # <b>Contents</b>
 
