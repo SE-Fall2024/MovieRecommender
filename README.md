@@ -41,6 +41,8 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 
 
 ## What new? :blush:
+https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmF1am04Y3Y2YWtrYzVmOWk1ZjFnOW81Z3lxM3BqdzJtYzJseXY4cyZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/DbVUJGG2cWkEbFzdKP/giphy.gif
+
 
 ## Future Project Plan 🔮
 
