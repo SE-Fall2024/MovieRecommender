@@ -202,6 +202,7 @@ def search():
 @app.route("/feedback", methods=["POST"])
 def feedback():
     data = json.loads(request.data)
+    print("data in app", data)
     with open(f"experiment_results/feedback_{int(time.time())}.csv", "w") as f:
         for key in data.keys():
             f.write(f"{key} - {data[key]}\n")
