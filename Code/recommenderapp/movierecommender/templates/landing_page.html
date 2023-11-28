@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Movie Recommendations</title>
+    <title>CineVerse</title>
     <meta charset="utf-8">
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,9 +50,11 @@
             <div class="profile-container">
                 <img class="profile-picture" src="https://img.freepik.com/premium-vector/hand-drawing-cartoon-girl-cute-girl-drawing-profile-picture_488586-692.jpg?w=2000" alt="">
                 <div class="profile-text-container">
-                    <span class="profile-text">Profile</span>
+                    <a href="{{url_for('movie')}}" style = "color:white; font-size: 15px; text-decoration:None; font-size: 18px;  " > <span class="profile-text">Profile</span></a>
                     <i class="fas fa-caret-down"></i>
                 </div>
+                <a href="{{url_for('logout')}}" style = "color:white; font-size: 15px; text-decoration:None; font-size: 18px; " > Logout </a>
+
                 
             </div>
         </div>
@@ -82,7 +84,7 @@
     </div>
 </a>
 
-<a href="{{url_for('logout')}}" style = "color:white; font-size: 15px; text-decoration:None; font-size: 24px; font-weight: bold; padding-left:1100px; " > Logout </a>
+
 <!-- </div> -->
     <!-- <div id="main"> -->
     <!-- <nav class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.5);">
@@ -491,7 +493,7 @@ body {
                 source: function (request, response) {
                     $.ajax({
                         type: "POST",
-                        url: "http://localhost:5000/search",
+                        url: "http://localhost:5001/search",
                         dataType: "json",
                         cache: false,
                         data: {

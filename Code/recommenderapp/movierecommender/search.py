@@ -1,6 +1,7 @@
 import pandas as pd
 
 # from app import app
+from movierecommender import app
 from flask import jsonify, request, render_template
 import sys
 import os
@@ -12,7 +13,7 @@ project_dir = os.path.dirname(code_dir)
 
 class Search:
 
-    df = pd.read_csv(project_dir + "/data/movies.csv")
+    df = pd.read_csv(code_dir + "/movierecommender/data/movies.csv")
 
     def __init__(self):
         pass
@@ -47,6 +48,7 @@ class Search:
         return startsWith
 
     def resultsTop10(self, word):
+        
         return self.results(word)[:10]
 
 
