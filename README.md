@@ -54,8 +54,8 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 2. Implemented User Authentication by developing a register and login page.
 3. Users are now able to create an account and access their account history (Liked movies, Disliked movies and movies yet to watch) for previously recommended movies.
 4. Integrated a Database using SQL alchemy to store user related data and movies.
-5. Enhanced the user interface.
-6. Fixed bugs related to feedback of recommended movies.
+5. Enhancement of the user interface.
+6. Fixed bugs related to the feedback of recommended movies.
 <img width="500" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
 
 
@@ -65,8 +65,8 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 Following is what the future developers can add! :
 
 1. Create a dynamic movie list instead of using an existing movie csv file.
-2. Build a new feature that exhibits diversity across genres, casting choices, and production styles.
-3. Enhance the user profile page.
+2. Build a new feature that exhibits diversity across genres, casting choices, and different production styles.
+3. Enhancing the user profile page.
 
 
 Note: Our system can be virtually tested through Github Actions inbuilt feature of build and test queries using python.
@@ -104,7 +104,7 @@ Python is a high-level, general-purpose programming language known for its simpl
 <details>
 <summary>Flask</summary>
 
-Flask is a micro web framework written in Python. It's lightweight and easy to use for building web applications, making it an excellent choice for small to medium-sized projects.
+Flask is a micro web framework written in Python. It's lightweight and easy to use for building web applications, making it a perfect choice for small to medium-sized projects.
 
 ![Flask](https://miro.medium.com/v2/resize:fit:679/0*Nh_pliddv1BFAx68.gif)
 </details>
