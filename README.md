@@ -40,7 +40,7 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 
 
 
-## What's new? :blush:
+## What's new in phase 3?! :blush:
 1. Integration of youtube api to provide trailers for the recommended movies.
 2. Implemented User Authentication by developing a register and login page.
 3. Users are now able to create an account and access their account history (Liked movies, Disliked movies and movies yet to watch) for previously recommended movies.
@@ -65,7 +65,7 @@ Make sure you taste your own medicine first and take into account other peoples 
 
 ## Video ▶️ 
 
-[![Watch the video](https://markdown-videos-api.jorgenkh.no/youtube/uYQ4t7GOEyU)](https://www.youtube.com/watch?v=fKRjYqZlOTY)
+[![Watch the video](https://markdown-videos-api.jorgenkh.no/youtube/fKRjYqZlOTY)](https://www.youtube.com/watch?v=fKRjYqZlOTY)
 
 
 
