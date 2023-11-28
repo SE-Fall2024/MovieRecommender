@@ -40,6 +40,7 @@ Your perfect movie is just a click away. Get started now and make every movie ni
 
 
 
+## What new? :blush:
 
 ## Future Project Plan 🔮
 
