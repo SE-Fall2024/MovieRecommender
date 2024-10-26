@@ -150,6 +150,33 @@ def search():
     resp.status_code = 200
     return resp
 
+
+def get_movie_by_title(title):
+    # Simulate a movie database lookup
+    movies = {
+        "Mogambo (1953)": {
+            "title": "Mogambo (1953)",
+            "image_url": "path/to/mogambo_poster.jpg",
+            "rating": 8.0,
+            "imdbRating": 8.5,
+            "description": "A love triangle involving a safari guide, his beautiful girlfriend, and a wealthy American woman."
+        },
+        # Add more movies as needed
+    }
+    return movies.get(title)
+
+@app.route('/movie/<string:title>')
+def movie_detail(title):
+    # Fetch the movie details based on the title
+    movie = get_movie_by_title(title)
+    if not movie:
+        return "Movie not found", 404  # Return a 404 if movie is not found
+    return render_template('movie_detail.html', movie=movie)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5001)
+
+
 @app.route("/feedback", methods=["POST"])
 def feedback():
     data = json.loads(request.data)
