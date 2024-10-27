@@ -16,7 +16,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 # Replace 'YOUR_API_KEY' with your actual OMDB API key
 OMDB_API_KEY = 'b726fa05'
 
-with open('api_key.txt', 'r') as file: # Trailer API
+with open('movierecommender/api_key.txt', 'r') as file: # Trailer API
     api_key = file.read().strip()
 
 
