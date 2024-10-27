@@ -12,7 +12,7 @@ import requests
 from movierecommender.prediction_scripts.item_based import recommendForNewUser
 from movierecommender.search import Search
 CORS(app, resources={r"/*": {"origins": "*"}})
- 
+# see this
 # Replace 'YOUR_API_KEY' with your actual OMDB API key
 OMDB_API_KEY = 'b726fa05'
 
