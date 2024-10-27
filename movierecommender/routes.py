@@ -153,25 +153,24 @@ def search():
 
 def get_movie_by_title(title):
     # Simulate a movie database lookup
-    movies = {
-        "Mogambo (1953)": {
-            "title": "Mogambo (1953)",
-            "image_url": "path/to/mogambo_poster.jpg",
-            "rating": 8.0,
-            "imdbRating": 8.5,
-            "description": "A love triangle involving a safari guide, his beautiful girlfriend, and a wealthy American woman."
-        },
-        # Add more movies as needed
-    }
-    return movies.get(title)
-
+    #print(title)
+    index=len(title)-6
+    url = f"http://www.omdbapi.com/?t={title[0:index]}&apikey={OMDB_API_KEY}"
+    #print(url)
+    response = requests.get(url)
+    res=response.json()
+    #print(res)
+    return res
+    
 @app.route('/movie/<string:title>')
 def movie_detail(title):
     # Fetch the movie details based on the title
     movie = get_movie_by_title(title)
-    if not movie:
-        return "Movie not found", 404  # Return a 404 if movie is not found
-    return render_template('movie_detail.html', movie=movie)
+    print(movie)
+    if movie["Response"]=='False':
+        return "Movie not found", 404 
+    else:
+        return render_template('movies_details.html', movie=movie)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
@@ -200,3 +199,37 @@ def movie():
 @app.route("/success")
 def success():
     return render_template("success.html")
+
+
+@app.route('/api/movies', methods=['GET'])
+def get_movies():
+    movies = []
+    with open('data/movies.csv', mode='r', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip the header
+        for row in reader:
+            if len(row) > 1:  # Check if there's a title in the second column
+                movies.append(row[1])  # Assuming titles are in the second column
+    return jsonify(movies)
+
+@app.route('/api/movie_details', methods=['GET'])
+def movie_details():
+    title = request.args.get('title')
+    index=len(title)-6
+    # Fetch details for the title from your API or database
+    # Example mock data
+    url = f"http://www.omdbapi.com/?t={title[0:index]}&apikey={OMDB_API_KEY}"
+    #print(url)
+    response = requests.get(url)
+    res=response.json()
+    details = {
+        "title": title,
+        "poster": res["Poster"],
+        "genre": res["Genre"],
+        "director": res["Director"],
+        "rating": res["imdbRating"]
+    }
+    return jsonify(details)
+
+
+
