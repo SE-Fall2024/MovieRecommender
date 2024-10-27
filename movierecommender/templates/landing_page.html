@@ -174,6 +174,7 @@
       </div>
     </a>
 
+
     <div class="container-fluid">
       <div class="content-container">
         <div
@@ -185,6 +186,8 @@
           "
         >
           <div class="row">
+           
+
             <div class="col-md-12 top-div">
               <h1 class="tagline">
                 Unlock your Cinematic Journey,<br />
@@ -227,37 +230,47 @@
           <h2 style="color: #ebe5e6; font-size: 24px; font-weight: bold">
             Selected movies:
           </h2>
-          <div class="selected-movies-container">
-  <div class="card-container" id="selectedMovies">
-    {% for movie in training_data %}
-    <div class="card">
-      <h4>{{ movie.title }}</h4>
-      <p>Rating: {{ movie.rating }}</p>
-      <p>IMDb Rating: {{ movie.imdbRating }}</p>
-      <!-- Add more IMDb info fields as needed -->
-    </div>
-    {% endfor %}
-  </div>
-</div>
+          <div class="card-container" id="selectedMovies">
+            {% for movie in training_data %}
+            <div class="card">
+              <h4>{{ movie.title }}</h4>
+              <p>Rating: {{ movie.rating }}</p>
+              <p>IMDb Rating: {{ movie.imdbRating }}</p>
 
-<div class="recommended-movies-container">
-  <h2
-    style="
-      color: #ebe5e6;
-      font-size: 24px;
-      font-weight: bold;
-      margin-left: 3%;
-    "
-  >
-    HERE ARE A FEW MOVIE RECOMMENDATIONS!
-  </h2>
-  
-  <div id="predictedMovies" class="scrolling-wrapper-flexbox">
-    <!-- Movie Cards will be generated here -->
-  </div>
-</div>
+              <!-- Add more IMDb info fields as needed -->
+            </div>
+            {% endfor %}
+          </div>
+        </div>
 
+        <div>
+          <h2
+            style="
+              color: #ebe5e6;
+              font-size: 24px;
+              font-weight: bold;
+              margin-left: 5%;
+            "
+          >
+            HERE ARE YOUR MOVIE RECOMMENDATIONS!
+          </h2>
+          <div id="predictedMovies" class="scrolling-wrapper-flexbox">
+            <!-- <div id="predictedMovies" class="card-container"></div> -->
+          </div>
+          <input
+            style="margin-left: 5%; margin-bottom: 5%"
+            type="button"
+            class="btn btn-danger"
+            name="feedback"
+            id="feedback"
+            value="Give Feedback"
+          />
+        </div>
+
+        
       </div>
+
+    
     </div>
 
     <div id="dataCollected" class="container" style="display: none">
@@ -432,35 +445,6 @@
       .error-content {
         text-align: center;
       }
-      .selected-movies-container,
-.recommended-movies-container {
-  margin-bottom: 20px; /* Space between sections */
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap to the next line */
-  justify-content: flex-start; /* Align cards to the left */
-}
-
-.card {
-  background-color: white; /* Background color for cards */
-  border: 1px solid #ccc; /* Border for cards */
-  border-radius: 5px; /* Rounded corners */
-  margin: 10px; /* Margin around cards */
-  padding: 15px; /* Padding inside cards */
-  width: calc(20% - 20px); /* Width of cards (20% width minus margin) */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-}
-
-.card h4 {
-  margin: 0; /* Remove default margin */
-}
-
-.card p {
-  margin: 5px 0; /* Margin for paragraphs */
-}
-
 
       /* .card {
     width: 100%;
@@ -571,18 +555,6 @@
         margin-top: 0;
         /* margin-left: 10px; */
       }
-      .movie-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px;
-    text-align: center;
-  }
-
-  .movie-poster {
-    max-width: 100%;
-    border-radius: 4px;
-  }
     </style>
 
     <script
@@ -612,136 +584,6 @@
   ></script>
 
   <script>
-    function createMovieCards(movies) {
-    const container = $('#predictedMovies');
-    container.empty(); // Clear any existing content
-
-    // Loop through each movie and create a card
-    movies.forEach(movie => {
-      const card = $(`
-        <div class="movie-card">
-          <img src="${movie.poster}" alt="${movie.title} Poster" class="movie-poster" />
-          <h3 class="movie-title">${movie.title}</h3>
-          <p><strong>Genre:</strong> ${movie.genre}</p>
-          <p><strong>Director:</strong> ${movie.director}</p>
-          <p><strong>IMDb Rating:</strong> ${movie.rating}</p>
-        </div>
-      `);
-      container.append(card);
-    });
-  }
-
-  // Function to fetch movie titles from CSV file
-  function fetchMovieTitles() {
-    $.ajax({
-      url: '/api/movies',
-      method: 'GET',
-      success: function(titles) {
-        fetchMovieDetails(titles.slice(0, 5)); // Fetch details for the first 5 titles
-      },
-      error: function(error) {
-        console.error('Error fetching movie titles:', error);
-      }
-    });
-  }
-
-  // Function to fetch movie details for each title
-  function fetchMovieDetails(titles) {
-    const movieDetailsPromises = titles.map(title => {
-      return $.ajax({
-        url: '/api/movie_details',
-        method: 'GET',
-        data: { title: title },
-      });
-    });
-
-    $.when(...movieDetailsPromises).done(function(...responses) {
-      const movies = responses.map(response => response[0]); // Extract data from responses
-      createMovieCards(movies);
-    }).fail(function(error) {
-      console.error('Error fetching movie details:', error);
-    });
-  }
-
-
-  $(document).ready(function() {
-  // Fetch recommended movies on page load
-  $.ajax({
-    url: '/api/movies',
-    type: 'GET',
-    success: function(movies) {
-      let movieCards = '';
-      movies.forEach(function(movie) {
-        movieCards += `
-          <div class="card">
-            <h4>${movie.title}</h4>
-            <p>Rating: ${movie.rating}</p>
-            <p>IMDb Rating: ${movie.imdbRating}</p>
-          </div>
-        `;
-      });
-      $('#predictedMovies').html(movieCards);
-    },
-    error: function(err) {
-      console.error('Error fetching movies:', err);
-    }
-  });
-
-  // Function to add selected movies
-  function addSelectedMovie(movie) {
-    const selectedMovieCard = `
-      <div class="card">
-        <h4>${movie.title}</h4>
-        <p>Rating: ${movie.rating}</p>
-        <p>IMDb Rating: ${movie.imdbRating}</p>
-      </div>
-    `;
-    $('#selectedMovies').append(selectedMovieCard);
-  }
-
-  // Example of adding a movie on some action
-  // addSelectedMovie({title: "Some Movie", rating: "4.5", imdbRating: "8.0"});
-});
-
-  $(document).ready(function() {
-    fetchMovieTitles(); // Initial call to fetch movie titles
-  });
-
-    $(document).ready(function() {
-  // Function to create movie cards
-  function createMovieCards(movies) {
-    const container = $('#predictedMovies');
-    container.empty(); // Clear any existing content
-
-    // Loop through each movie and create a card
-    movies.forEach(movie => {
-      const card = $('<div class="movie-card"></div>');
-      card.html(`
-        <img src="${movie.poster}" alt="${movie.title} Poster" class="movie-poster" />
-        <h3 class="movie-title">${movie.title}</h3>
-        <p><strong>Genre:</strong> ${movie.genre}</p>
-        <p><strong>Director:</strong> ${movie.director}</p>
-        <p><strong>IMDb Rating:</strong> ${movie.rating}</p>
-      `);
-      container.append(card);
-    });
-  }
-
-  // AJAX request to get movie data
-  $.ajax({
-    url: 'path/to/your/movies.json', // Replace with your JSON file or API endpoint
-    method: 'GET',
-    dataType: 'json',
-    success: function(data) {
-      // Assuming data is an array of movie objects
-      createMovieCards(data);
-    },
-    error: function(xhr, status, error) {
-      console.error('AJAX Error:', status, error);
-    }
-  });
-});
-
     $(document).ready(function () {
       function displayErrorMessage(message) {
         $("#errorMessageText").text(message);
@@ -847,41 +689,41 @@
                 ' target= "_blank" style="color:white; font-size: 20px; text-decoration:None; "> Play Trailer </a>';
               // card.appendChild(trailer);
 
-              // var QuestionLabel = document.createElement("label");
-              // QuestionLabel.className = "radio-inline";
-              // QuestionLabel.innerHTML = "<h4>Give Feedback:";
+              var QuestionLabel = document.createElement("label");
+              QuestionLabel.className = "radio-inline";
+              QuestionLabel.innerHTML = "<h4>Give Feedback:";
 
-              // var dislikeLabel = document.createElement("label");
-              // dislikeLabel.className = "radio-inline";
-              // dislikeLabel.innerHTML =
-              //   '<input type="radio" id ="dislike" name="' +
-              //   element +
-              //   '" value="1"> Dislike <br/>';
+              var dislikeLabel = document.createElement("label");
+              dislikeLabel.className = "radio-inline";
+              dislikeLabel.innerHTML =
+                '<input type="radio" id ="dislike" name="' +
+                element +
+                '" value="1"> Dislike <br/>';
 
-              // var yetToWatchLabel = document.createElement("label");
-              // yetToWatchLabel.className = "radio-inline";
-              // yetToWatchLabel.innerHTML =
-              //   '<input  type="radio" id="towatch" name="' +
-              //   element +
-              //   '" value="2"> Yet to watch <br/>';
+              var yetToWatchLabel = document.createElement("label");
+              yetToWatchLabel.className = "radio-inline";
+              yetToWatchLabel.innerHTML =
+                '<input  type="radio" id="towatch" name="' +
+                element +
+                '" value="2"> Yet to watch <br/>';
 
-              // var likeLabel = document.createElement("label");
-              // likeLabel.className = "radio-inline";
-              // likeLabel.innerHTML =
-              //   '<input type="radio" id="like" name="' +
-              //   element +
-              //   '" value="3"> Like <br/>';
+              var likeLabel = document.createElement("label");
+              likeLabel.className = "radio-inline";
+              likeLabel.innerHTML =
+                '<input type="radio" id="like" name="' +
+                element +
+                '" value="3"> Like <br/>';
 
-              // radioButtons.appendChild(QuestionLabel);
-              // radioButtons.appendChild(dislikeLabel);
-              // radioButtons.appendChild(yetToWatchLabel);
-              // radioButtons.appendChild(likeLabel);
+              radioButtons.appendChild(QuestionLabel);
+              radioButtons.appendChild(dislikeLabel);
+              radioButtons.appendChild(yetToWatchLabel);
+              radioButtons.appendChild(likeLabel);
 
               cardBody.appendChild(title);
               cardBody.appendChild(imdbRating);
               cardBody.appendChild(trailer);
               cardBody.appendChild(genre);
-              // cardBody.appendChild(radioButtons);
+              cardBody.appendChild(radioButtons);
 
               card.appendChild(cardBody);
               document.getElementById("predictedMovies").appendChild(card);
