@@ -58,38 +58,100 @@
             <li class="menu-list-item">Trends</li>
           </ul>
         </div>
+        <!-- Group 49-->
         <div class="profile-container">
           <img
-            class="profile-picture"
-            src="https://img.freepik.com/premium-vector/hand-drawing-cartoon-girl-cute-girl-drawing-profile-picture_488586-692.jpg?w=2000"
-            alt=""
+              class="profile-picture"
+              src="https://img.freepik.com/premium-vector/hand-drawing-cartoon-girl-cute-girl-drawing-profile-picture_488586-692.jpg?w=2000"
+              alt=""
           />
-          <div class="profile-text-container">
-            <a
-              href="{{url_for('movie')}}"
-              style="
-                color: white;
-                font-size: 15px;
-                text-decoration: None;
-                font-size: 18px;
-              "
-            >
-              <span class="profile-text">Profile</span></a
-            >
-            <i class="fas fa-caret-down"></i>
+          <div class="profile-text-container" onclick="toggleDropdown()">
+              <span style="font-size: 18px;">Profile <i class="fas fa-caret-down"></i></span>
           </div>
-          <a
-            href="{{url_for('logout')}}"
-            style="
-              color: white;
-              font-size: 15px;
-              text-decoration: None;
-              font-size: 18px;
-            "
-          >
-            Logout
-          </a>
-        </div>
+          <div class="dropdown-content" id="dropdown-menu">
+              <a href="{{url_for('account')}}">Account</a>
+              <a href="{{url_for('logout')}}">Logout</a>
+          </div>
+      </div>
+
+
+      <style>
+        body {
+            background-color: #2c2c2c; /* Background color for contrast */
+            color: white; /* Default text color */
+            font-family: Arial, sans-serif; /* Font family */
+            height: 2000px; /* Extra height to allow scrolling */
+            margin: 0; /* Remove default margin */
+        }
+
+        .profile-container {
+            position: relative; /* Allows absolute positioning of the dropdown */
+            display: inline-block; /* Keep container inline */
+            padding: 20px; /* Padding around the profile container */
+        }
+
+        .profile-text-container {
+            display: flex; /* Align items in a row */
+            align-items: center; /* Center vertically */
+            cursor: pointer; /* Pointer cursor for interactivity */
+        }
+
+        .dropdown-content {
+            display: none; /* Hide dropdown content by default */
+            position: absolute;
+            top: 100%; /* Position below the dropdown arrow */
+            left: 80%; /* Center the dropdown content */
+            transform: translateX(-50%); /* Center alignment adjustment */
+            background-color: #333; /* Background color for the dropdown */
+            min-width: 160px; /* Minimum width of the dropdown */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            z-index: 1; /* Ensure dropdown appears above other elements */
+            border-radius: 4px; /* Slightly rounded corners */
+        }
+
+        .dropdown-content a {
+            color: white; /* Text color */
+            padding: 12px 16px; /* Padding for links */
+            text-decoration: none; /* No underline */
+            display: block; /* Links take full width */
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757; /* Background color on hover */
+            transition: background-color 0.3s; /* Smooth background color transition */
+        }
+
+        /* Optional: Add some styling for the profile picture */
+        .profile-picture {
+            border-radius: 50%; /* Makes the profile picture circular */
+            width: 50px; /* Set a fixed width */
+            height: 50px; /* Set a fixed height */
+        }
+    </style>
+       
+    <script>
+      function toggleDropdown() {
+          var dropdownMenu = document.getElementById("dropdown-menu");
+          dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+      }
+
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+          if (!event.target.matches('.profile-text-container *') && !event.target.closest('.profile-container')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              for (var i = 0; i < dropdowns.length; i++) {
+                  dropdowns[i].style.display = "none";
+              }
+          }
+      };
+
+      // Prevent dropdown from closing when clicking on dropdown items
+      document.getElementById('dropdown-menu').addEventListener('click', function(event) {
+          event.stopPropagation(); // Prevent click event from bubbling up to window
+      });
+  </script>
+  
+        <!-- Group 49-->
       </div>
     </div>
     <div class="sidebar">

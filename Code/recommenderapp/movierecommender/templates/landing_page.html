@@ -32,6 +32,7 @@
 
     <!-- Phase 3 changes -->
     
+<h1>saksgasdyg/<h1>
     <div class="navbar ">
         <div class="navbar-container">
             <div class="logo-container">
@@ -47,16 +48,58 @@
 
                 </ul>
             </div>
+            <!-- Group-49-->
             <div class="profile-container">
                 <img class="profile-picture" src="https://img.freepik.com/premium-vector/hand-drawing-cartoon-girl-cute-girl-drawing-profile-picture_488586-692.jpg?w=2000" alt="">
                 <div class="profile-text-container">
-                    <a href="{{url_for('movie')}}" style = "color:white; font-size: 15px; text-decoration:None; font-size: 18px;  " > <span class="profile-text">Profile</span></a>
-                    <i class="fas fa-caret-down"></i>
+                    <a href="{{url_for('movie')}}" style="color:white; font-size: 18px; text-decoration:none;"> 
+                        <span class="profile-text">Profile</span>
+                    </a>
+                    <div class="dropdown">
+                        <i class="fas fa-caret-down"></i>
+                        <div class="dropdown-content">
+                            <a href="{{url_for('account')}}" style="color:white; font-size: 15px; text-decoration:none;">Account</a>
+                            <a href="{{url_for('logout')}}" style="color:white; font-size: 15px; text-decoration:none;">Logout</a>
+                        </div>
+                    </div>
                 </div>
-                <a href="{{url_for('logout')}}" style = "color:white; font-size: 15px; text-decoration:None; font-size: 18px; " > Logout </a>
-
-                
             </div>
+            
+            .profile-container {
+                position: relative; /* Allows absolute positioning of the dropdown */
+            }
+            
+            .dropdown {
+                display: inline-block;
+                position: relative; /* Positioning for the dropdown */
+            }
+            
+            .dropdown-content {
+                display: none; /* Hide dropdown content by default */
+                position: absolute;
+                background-color: #333; /* Background color for the dropdown */
+                min-width: 160px; /* Minimum width of the dropdown */
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
+                z-index: 1; /* Ensure dropdown appears above other elements */
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block; /* Show dropdown content on hover */
+            }
+            
+            .dropdown-content a {
+                color: white; /* Text color */
+                padding: 12px 16px; /* Padding for links */
+                text-decoration: none; /* No underline */
+                display: block; /* Links take full width */
+            }
+            
+            .dropdown-content a:hover {
+                background-color: #575757; /* Background color on hover */
+            }
+
+            
+            <!-- Group-49-->
         </div>
     </div>
     <div class="sidebar">
