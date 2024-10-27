@@ -11,6 +11,8 @@ import time
 import requests
 from movierecommender.prediction_scripts.item_based import recommendForNewUser
 from movierecommender.search import Search
+import random
+
 CORS(app, resources={r"/*": {"origins": "*"}})
  
 # Replace 'YOUR_API_KEY' with your actual OMDB API key
@@ -18,6 +20,7 @@ OMDB_API_KEY = 'b726fa05'
 
 with open('movierecommender/api_key.txt', 'r') as file: # Trailer API
     api_key = file.read().strip()
+
 
 
 def get_movie_info(title):
@@ -79,24 +82,6 @@ def account():
 
 
 @app.route("/predict", methods=["POST"])
-# def predict():
-#     data = json.loads(request.data)  # contains movies
-#     data1 = data["movie_list"]
-#     training_data = []
-#     for movie in data1:
-#         movie_with_rating = {"title": movie, "rating": 5.0}
-#         training_data.append(movie_with_rating)
-#     recommendations = recommendForNewUser(movie_with_rating)
-    
-#     for movie in data1:    
-#         movie_info = get_movie_info(movie)
-#         if movie_info:
-#             movie_with_rating["title"]=movie
-#             movie_with_rating["rating"]=movie_info["imdbRating"]
-    
-#     recommendations = recommendations[:10]
-#     resp = {"recommendations": recommendations}
-#     return resp
 def predict():
     data = json.loads(request.data)  # contains movies from the user
     print("data ",data) #~
@@ -106,8 +91,8 @@ def predict():
         movie_with_rating = {"title": movie, "rating": 5.0}
         training_data.append(movie_with_rating)
     recommendations = recommendForNewUser(training_data)
-    recommendations = recommendations[:10] # Top 10 recommended
-    print("recommendations Top 10", recommendations) #~
+    recommendations = recommendations[:5] # Top 5 recommended
+    print("recommendations Top 5", recommendations) #~
     for movie in recommendations:
         movie_info = get_movie_info(movie)
         #print("movie_info", movie_info) #~
@@ -162,10 +147,36 @@ def search():
     term = request.form["q"]
     print("term= ", term) #~
     search = Search()
-    filtered_dict = search.resultsTop10(term)
+    filtered_dict = search.resultsTop5(term)
     resp = jsonify(filtered_dict)
     resp.status_code = 200
     return resp
+
+
+def get_movie_by_title(title):
+    # Simulate a movie database lookup
+    #print(title)
+    index=len(title)-6
+    url = f"http://www.omdbapi.com/?t={title[0:index]}&apikey={OMDB_API_KEY}"
+    #print(url)
+    response = requests.get(url)
+    res=response.json()
+    #print(res)
+    return res
+    
+@app.route('/movie/<string:title>')
+def movie_detail(title):
+    # Fetch the movie details based on the title
+    movie = get_movie_by_title(title)
+    print(movie)
+    if movie["Response"]=='False':
+        return "Movie not found", 404 
+    else:
+        return render_template('movies_details.html', movie=movie)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5001)
+
 
 @app.route("/feedback", methods=["POST"])
 def feedback():
@@ -190,3 +201,47 @@ def movie():
 @app.route("/success")
 def success():
     return render_template("success.html")
+
+
+@app.route('/api/movies', methods=['GET'])
+def get_movies():
+    movies = []
+    with open('movierecommender/data/movies.csv', mode='r', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip the header
+        for row in reader:
+            if len(row) > 1:  # Check if there's a title in the second column
+                movies.append(row[1])  # Assuming titles are in the second column
+
+    num_random_movies = 5  
+    random_movies = random.sample(movies, min(num_random_movies, len(movies)))
+    return jsonify(random_movies)
+
+@app.route('/api/movie_details', methods=['GET'])
+def movie_details():
+    title = request.args.get('title')
+    index=len(title)-6
+    url = f"http://www.omdbapi.com/?t={title[0:index]}&apikey={OMDB_API_KEY}"
+    #print(url)
+    response = requests.get(url)
+    res=response.json()
+    if (res["Response"] == "Success"):
+        details = {
+            "title": title,
+            "poster": res["Poster"],
+            "genre": res["Genre"],
+            "director": res["Director"],
+            "rating": res["imdbRating"]
+        }
+    else:
+        details={
+            "title":title,
+            "poster":url_for('static', filename='image.jpeg'),
+            "genre":"N/A",
+            "director":"N/A",
+            "rating":"N/A"
+        }
+    return jsonify(details)
+
+
+

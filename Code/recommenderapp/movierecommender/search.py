@@ -47,9 +47,9 @@ class Search:
         startsWith.extend(anywhere)
         return startsWith
 
-    def resultsTop10(self, word):
+    def resultsTop5(self, word):
         
-        return self.results(word)[:10]
+        return self.results(word)[:5]
 
 
 if __name__ == "__main__":
