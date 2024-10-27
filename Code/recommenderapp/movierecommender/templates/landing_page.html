@@ -567,10 +567,273 @@ body {
     
 
     $(document).ready(function () {
+<<<<<<< Updated upstream
         function displayErrorMessage(message) {
             $('#errorMessageText').text(message);
             $('#errorMessage').show(); // Show the error card
             $('#main').css('opacity', '0.1');
+=======
+      // Fetch recommended movies on page load
+      $.ajax({
+        url: "/api/movies",
+        type: "GET",
+        success: function (movies) {
+          let movieCards = "";
+          movies.forEach(function (movie) {
+            movieCards += `
+          <div class="card">
+            <h4>${movie.title}</h4>
+            <p>Rating: ${movie.rating}</p>
+            <p>IMDb Rating: ${movie.imdbRating}</p>
+          </div>
+        `;
+          });
+          $("#predictedMovies").html(movieCards); //just now added
+        },
+        error: function (err) {
+          console.error("Error fetching movies:", err);
+        },
+      });
+
+      // Function to add selected movies
+      function addSelectedMovie(movie) {
+        const selectedMovieCard = `
+      <div class="card">
+        <h4>${movie.title}</h4>
+        <p>Rating: ${movie.rating}</p>
+        <p>IMDb Rating: ${movie.imdbRating}</p>
+      </div>
+    `;
+        $("#selectedMovies").append(selectedMovieCard);
+      }
+
+      // Example of adding a movie on some action
+      // addSelectedMovie({title: "Some Movie", rating: "4.5", imdbRating: "8.0"});
+    });
+
+    $(document).ready(function () {
+      fetchMovieTitles(); // Initial call to fetch movie titles
+    });
+
+    $(document).ready(function () {
+      // Function to create movie cards
+      function createMovieCards(movies) {
+        const container = $("#predictedMovies");
+        container.empty(); // Clear any existing content
+
+        // Loop through each movie and create a card
+        movies.forEach((movie) => {
+          const card = $('<div class="movie-card"></div>');
+          card.html(`
+    <a href="/movie/${movie.title}">
+      <img src="${movie.poster}" alt="${movie.title} Poster" class="movie-poster" data-title="${movie.title}" />
+    </a>
+    <h3 class="movie-title">${movie.title}</h3>
+    <p><strong>Genre:</strong> ${movie.genre}</p>
+    <p><strong>Director:</strong> ${movie.director}</p>
+    <p><strong>IMDb Rating:</strong> ${movie.rating}</p>
+  `);
+
+          // Append the card to the container
+          container.append(card);
+        });
+      }
+
+      // AJAX request to get movie data
+      $.ajax({
+        url: "path/to/your/movies.json", // Replace with your JSON file or API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+          // Assuming data is an array of movie objects
+          createMovieCards(data);
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX Error:", status, error);
+        },
+      });
+    });
+
+    $(document).ready(function () {
+      function displayErrorMessage(message) {
+        $("#errorMessageText").text(message);
+        $("#errorMessage").show(); // Show the error card
+        $("#main").css("opacity", "0.1");
+      }
+
+      $(function () {
+        $("#searchBox").autocomplete({
+          source: function (request, response) {
+            $.ajax({
+              type: "POST",
+              url: "http://localhost:5001/search",
+              dataType: "json",
+              cache: false,
+              data: {
+                q: request.term,
+              },
+              success: function (data) {
+                //alert(data);
+                // console.log(data);
+                response(data);
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus + " " + errorThrown);
+              },
+            });
+          },
+          select: function (event, ui) {
+            var ulList = $("#selectedMovies");
+            var li = $("<li/>").text(ui.item.value).appendTo(ulList);
+            $("#searchBox").val("");
+            return false;
+          },
+          minLength: 2,
+        });
+      });
+      // see this
+      $("#predict").click(function () {
+        var movie_list = [];
+
+        $("#selectedMovies li").each(function () {
+          movie_list.push($(this).text());
+        });
+
+        var movies = { movie_list: movie_list };
+
+        $.ajax({
+          type: "POST",
+          url: "/predict",
+          dataType: "json",
+          contentType: "application/json;charset=UTF-8",
+          traditional: "true",
+          cache: false,
+          data: JSON.stringify(movies),
+          success: function (response) {
+            var ulList = $("#selectedMovies li");
+            var i = 0;
+            response["recommendations"].forEach((element) => {
+              var card = document.createElement("div");
+              card.id = "predict_movie" + i;
+              card.className = "card";
+              card.style.margin = "2.5%";
+              card.style.width = "20%";
+              card.style.padding = "2%";
+
+              var image = document.createElement("img");
+              image.src = response["rating"][element + "-p"];
+              image.alt = "Movie Poster";
+              image.style.width = "100%";
+
+              image.addEventListener("click", function () {
+                window.location.href = "/movie/" + element; // Replace 'element' with the ID or name for routing to the movie detail page
+              });
+              card.appendChild(image);
+
+              var cardBody = document.createElement("div");
+              cardBody.className = "card-body";
+
+              var title = document.createElement("h3");
+              title.id = "title";
+              title.className = "card-title";
+              title.textContent = element;
+
+              var imdbRating = document.createElement("h6");
+              imdbRating.className = "card-text";
+              imdbRating.textContent =
+                "imdb: " + response["rating"][element + "-r"];
+
+              var genre = document.createElement("h6");
+              genre.className = "card-text";
+              genre.textContent =
+                "Genre: " + response["rating"][element + "-g"];
+
+              var radioButtons = document.createElement("div");
+              radioButtons.className = "radio-buttons";
+
+              var trailer = document.createElement("a");
+              trailer.className = "card-text";
+              trailer.innerHTML =
+                '<div width = "10px" height="10px" style="border: 1px solid #FFF; text-align: center; "><a href= ' +
+                response["rating"][element + "-u"] +
+                ' target= "_blank" style="color:white; font-size: 20px; text-decoration:None; "> Play Trailer </a>';
+              // card.appendChild(trailer);
+
+              // var QuestionLabel = document.createElement("label");
+              // QuestionLabel.className = "radio-inline";
+              // QuestionLabel.innerHTML = "<h4>Give Feedback:";
+
+              // var dislikeLabel = document.createElement("label");
+              // dislikeLabel.className = "radio-inline";
+              // dislikeLabel.innerHTML =
+              //   '<input type="radio" id ="dislike" name="' +
+              //   element +
+              //   '" value="1"> Dislike <br/>';
+
+              // var yetToWatchLabel = document.createElement("label");
+              // yetToWatchLabel.className = "radio-inline";
+              // yetToWatchLabel.innerHTML =
+              //   '<input  type="radio" id="towatch" name="' +
+              //   element +
+              //   '" value="2"> Yet to watch <br/>';
+
+              // var likeLabel = document.createElement("label");
+              // likeLabel.className = "radio-inline";
+              // likeLabel.innerHTML =
+              //   '<input type="radio" id="like" name="' +
+              //   element +
+              //   '" value="3"> Like <br/>';
+
+              // radioButtons.appendChild(QuestionLabel);
+              // radioButtons.appendChild(dislikeLabel);
+              // radioButtons.appendChild(yetToWatchLabel);
+              // radioButtons.appendChild(likeLabel);
+
+              cardBody.appendChild(title);
+              cardBody.appendChild(imdbRating);
+              cardBody.appendChild(trailer);
+              cardBody.appendChild(genre);
+              // cardBody.appendChild(radioButtons);
+
+              card.appendChild(cardBody);
+              document.getElementById("selectedMovies").appendChild(card);
+              i += 1;
+              return card;
+            });
+
+            // var li = $('<li/>').text()
+            console.log("->", response["recommendations"]);
+          },
+          error: function (error) {
+            console.log("ERROR ->" + error);
+            displayErrorMessage("Error in fetching recommendations");
+          },
+        });
+      });
+
+      $("#feedback").click(function () {
+        var myForm = $("fieldset");
+        var data = {};
+        var labels = {
+          1: "Dislike",
+          2: "Yet to watch",
+          3: "Like",
+        };
+        console.log("Length", myForm.length);
+        for (var i = 0; i < 10; i++) {
+          console.log("In for loop");
+          var input = $("#predict_movie" + i)
+            .find("div")
+            .find("input:checked")[0].value;
+          var movieName = $("#predict_movie" + i)
+            .find("div")
+            .find("h3")[0].innerHTML;
+          //var movieName = $('#predict_movie'+i).find('div').find('li')[0].innerText;
+          console.log("Print", input, movieName);
+          data[movieName] = labels[input];
+
+          var input = $("predictedMovies").find();
+>>>>>>> Stashed changes
         }
 
         $(function () {
