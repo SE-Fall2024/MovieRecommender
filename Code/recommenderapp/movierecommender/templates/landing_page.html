@@ -74,6 +74,7 @@
             <a href="{{url_for('account')}}">Account</a>
             <a href="{{url_for('logout')}}">Logout</a>
             <a href="{{url_for('wishlistItems')}}">Wishlist</a>
+            <a href="{{url_for('watched')}}">Watched History</a>
           </div>
         </div>
 
@@ -222,41 +223,54 @@
               </p>
             </div>
             <div class="col-md-6">
-              <input
-                style="margin-top: 3%"
-                type="button"
-                class="btn btn-danger"
-                name="predict"
-                id="predict"
-                value="Predict"
-              />
+    <input
+        style="margin-top: 3%"
+        type="button"
+        class="btn btn-danger"
+        name="predict"
+        id="predict"
+        value="Predict"
+    />
+    
+</div>
+
+<div class="container" style="display: none;" id="moviePredictDisplay">
+    <h2 style="color: #ebe5e6; font-size: 24px; font-weight: bold">
+        Predicted movies:
+    </h2>
+    <div class="movie-display-container" id="movieDisplay">
+        <div class="movie-grid" id="selectedMovies">
+            {% for movie in training_data %}
+            <div class="individual-movie-card">
+                <h4>{{ movie.title }}</h4>
+                <p>Rating: {{ movie.rating }}</p>
+                <p>IMDb Rating: {{ movie.imdbRating }}</p>
+                <!-- Add more IMDb info fields as needed -->
             </div>
-          </div>
-          <div class="container">
-            <!-- Group49 -->
-            <h2 style="color: #ebe5e6; font-size: 24px; font-weight: bold">
-              Predicted movies:
-            </h2>
-            <div class="movie-display-container">
-              <div class="movie-grid" id="selectedMovies">
-                {% for movie in training_data %}
-                <div class="individual-movie-card">
-                  <h4>{{ movie.title }}</h4>
-                  <p>Rating: {{ movie.rating }}</p>
-                  <p>IMDb Rating: {{ movie.imdbRating }}</p>
-                  <!-- Add more IMDb info fields as needed -->
-                </div>
-                {% endfor %}
-              </div>
-            </div>
-            
-            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('predict').addEventListener('click', function() {
+        const movieDisplay = document.getElementById('moviePredictDisplay');
+        
+        if (movieDisplay.style.display === 'none') {
+            movieDisplay.style.display = 'block'; 
+        } else {
+            movieDisplay.style.display = 'none'; 
+        }
+    });
+</script>
+
+
             </div>
           </div>
         </div>
       </div>
-
-      <div class="recommended-movies-container">
+      <div class="container">
+<div class="recommended-movies-container">
         <h2
           style="
             color: #ebe5e6;
@@ -272,6 +286,8 @@
           <!-- Movie Cards will be generated here -->
         </div>
       </div>
+      </div>
+      
 
       <!-- <div id="dataCollected" class="container" style="display: none">
       <h1 style="color: #ebe5e6; font-size: 24px; font-weight: bold">

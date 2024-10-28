@@ -3,7 +3,7 @@ from flask_cors import CORS, cross_origin
 from movierecommender import app,db, bcrypt
 from movierecommender.forms import RegistrationForm, LoginForm
 from flask_login import login_user, current_user, logout_user, login_required
-from movierecommender.models import User, Post, WishlistItem
+from movierecommender.models import User, Post, WishlistItem, Watched
 import json
 import sys
 import csv
@@ -259,6 +259,21 @@ def add_to_wishlist(title):
         db.session.rollback()
         return jsonify({"success": False, "error": "Failed to add movie to wishlist."}), 500
     
+@app.route("/api/add_to_watched/<string:title>", methods=["POST"])
+def add_to_watched(title):
+    if not current_user.is_authenticated:
+        return jsonify({"error": "Please log in to add items to your wishlist."}), 401
+
+    new_wishlist_item = Watched(title=title, user_id=current_user.id)
+
+    try:
+        db.session.add(new_wishlist_item)
+        db.session.commit()
+        return jsonify({"success": True, "message": "Movie added to your watched history!"})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"success": False, "error": "Failed to add movie to watched history."}), 500
+    
 @app.route("/wishlistItems")
 def wishlistItems():
     wishlist_movies = (
@@ -272,3 +287,17 @@ def wishlistItems():
     movies_list = [{'title': title, 'added_on': added_on} for title, added_on in wishlist_movies]
     
     return render_template('wishlist.html', wishlist_movies=wishlist_movies)
+
+@app.route("/watched")
+def watched():
+    watched_movies = (
+        db.session.query(Watched.title, func.min(Watched.added_on).label('added_on'))
+        .filter_by(user_id=current_user.id)
+        .group_by(Watched.title)
+        .all()
+    )
+    
+    # Convert the results into a list of dictionaries for easier access in the template
+    movies_list = [{'title': title, 'added_on': added_on} for title, added_on in watched_movies]
+    
+    return render_template('watched.html', watched_movies=watched_movies)
