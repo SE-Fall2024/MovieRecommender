@@ -51,9 +51,46 @@
 
   <div class="action-buttons">
     <div class="left-buttons">
-      <div class="button-container">
+
+
+      <div class="movie">
+        <button onclick="likeMovie('{{movie.Title}}')">👍</button>
+        <span id="like">0</span>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function likeMovie(movieTitle) {
+          console.log(movieTitle)
+            $.ajax({
+                url: '/like_movie',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({movie_title: movieTitle}),
+                success: function(data) {
+                    // Update the like count for the specific movie title in the UI
+                    console.log(data)
+                    const likeCountElement = document.getElementById('like');
+                    if (likeCountElement) {
+                        
+                        likeCountElement.innerText = data.new_like_count;
+                    }
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    </script>
+
+
+
+
+
+
+
+      <!-- <div class="button-container">
         <button class="like-button" title="Like">👍</button>
-      </div>
+      </div> -->
       <div class="button-container">
         <button class="dislike-button" title="Dislike">👎</button>
       </div>

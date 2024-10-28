@@ -47,3 +47,19 @@ class Watched(db.Model):
     title = db.Column(db.String(100), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     added_on = db.Column(db.DateTime, default=datetime.utcnow)
+
+# #Group 49 new
+# class Movie(db.Model):
+#     __tablename__ = 'movies'
+#     id = db.Column(db.Integer, primary_key=True)
+#     title = db.Column(db.String(100), nullable=False)
+#     like_count = db.Column(db.Integer, default=0)  # Store the count of likes
+
+
+class MovieLikes(db.Model):
+    __tablename__ = 'movie_likes'
+    id = db.Column(db.Integer, primary_key=True)
+    movie_id = db.Column(db.String(100), unique=True, nullable=False)
+    like_count = db.Column(db.Integer, default=0)
+
+

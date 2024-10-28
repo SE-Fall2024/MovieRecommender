@@ -3,7 +3,7 @@ from flask_cors import CORS, cross_origin
 from movierecommender import app,db, bcrypt
 from movierecommender.forms import RegistrationForm, LoginForm
 from flask_login import login_user, current_user, logout_user, login_required
-from movierecommender.models import User, Post, WishlistItem, Watched
+from movierecommender.models import User, Post, WishlistItem, Watched, MovieLikes
 import json
 import sys
 import csv
@@ -308,3 +308,51 @@ def watched():
     print(movies_list2)
     
     return render_template('watched.html', watched_movies=movies_list2)
+
+#Group 49 new
+
+# like_counts = {}
+
+# @app.route('/like_movie', methods=['POST'])
+# def like_movie():
+#     data = request.get_json()
+#     movie_title = data.get('movie_title')
+#     user_id = current_user.id
+#     print("hello")
+#     # Update the like count in the dictionary (mock database)
+#     if movie_title:
+#         like_counts[movie_title] = like_counts.get(movie_title, 0) + 1
+#         new_like_count = like_counts[movie_title]
+#         return jsonify({'new_like_count': new_like_count}), 200
+#     return jsonify({'error': 'Movie title is missing'}), 400
+
+
+@app.route('/like_movie', methods=['POST'])
+def like_movie():
+    data = request.get_json()
+    print(data)
+    movie_title = data.get('movie_title')  
+    
+    if movie_title is not None:  
+        like_record = MovieLikes.query.filter_by(movie_id=movie_title).first()
+        print(movie_title)
+        print(like_record)
+        if like_record:
+            like_record.like_count += 1
+        else:
+            like_record = MovieLikes(movie_id=movie_title, like_count=1)
+            
+            db.session.add(like_record)
+
+        
+        
+        db.session.commit()  # Commit the changes to the database
+        
+        return jsonify({'new_like_count': like_record.like_count}), 200
+    
+    return jsonify({'error': 'Movie ID is missing'}), 400
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
