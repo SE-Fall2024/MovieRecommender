@@ -11,7 +11,7 @@
     <div class="individual-movie-card">
       <!-- Display Movie Poster -->
       <img
-        src="{{ movie.poster if movie.poster else '/static/images/default_poster.jpg' }}"
+        src="{{ movie.Poster if movie.Poster else '/static/images/default_poster.jpg' }}"
         alt="{{ movie.title }} Poster"
         class="article-img"
         onerror="this.onerror=null;this.src='/static/images/default_poster.jpg';" />
@@ -20,9 +20,9 @@
       <h4 class="article-title">{{ movie.title }}</h4>
 
       <!-- Movie Details -->
-      <p class="article-content"><strong>Genre:</strong> {{ movie.genre }}</p>
-      <p class="article-content"><strong>Director:</strong> {{ movie.director }}</p>
-      <p class="article-content"><strong>IMDb Rating:</strong> {{ movie.imdb_rating }}</p>
+      <p class="article-content"><strong>Genre:</strong> {{ movie.Genre }}</p>
+      <p class="article-content"><strong>Director:</strong> {{ movie.Director }}</p>
+      <p class="article-content"><strong>IMDb Rating:</strong> {{ movie.imdbRating }}</p>
       <p class="article-content"><strong>Added on:</strong> {{ movie.added_on.strftime('%Y-%m-%d') }}</p>
     </div>
     {% endfor %}

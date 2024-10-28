@@ -282,11 +282,14 @@ def wishlistItems():
         .group_by(WishlistItem.title)
         .all()
     )
-    
+
     # Convert the results into a list of dictionaries for easier access in the template
-    movies_list = [{'title': title, 'added_on': added_on} for title, added_on in wishlist_movies]
+    movies_list1 = [
+        {**get_movie_info(title), 'title': title, 'added_on': added_on}
+        for title, added_on in wishlist_movies
+    ]
     
-    return render_template('wishlist.html', wishlist_movies=wishlist_movies)
+    return render_template('wishlist.html', wishlist_movies=movies_list1)
 
 @app.route("/watched")
 def watched():
@@ -298,6 +301,10 @@ def watched():
     )
     
     # Convert the results into a list of dictionaries for easier access in the template
-    movies_list = [{'title': title, 'added_on': added_on} for title, added_on in watched_movies]
+    movies_list2 = [
+        {**get_movie_info(title), 'title': title, 'added_on': added_on}
+        for title, added_on in watched_movies
+    ]
+    print(movies_list2)
     
-    return render_template('watched.html', watched_movies=watched_movies)
+    return render_template('watched.html', watched_movies=movies_list2)
