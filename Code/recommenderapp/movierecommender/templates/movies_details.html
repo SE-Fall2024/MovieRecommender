@@ -68,17 +68,17 @@
           <button class="wishlist-button" data-movie-title="{{ movie.Title }}" title="Add to Wishlist">❤️</button>
       </div>
   </div>
-  
+
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var buttons = document.querySelectorAll('.wishlist-button'); // Select all wishlist buttons
-  
+
       buttons.forEach(function(button) {
           button.addEventListener('click', function(event) {
               event.preventDefault();  // Prevent the default form submission
-  
+
               var movieTitle = this.getAttribute('data-movie-title');  // Use a data attribute for the title
-  
+
               fetch(`/api/add_to_wishlist/${encodeURIComponent(movieTitle)}`, {
                   method: 'POST',
                   headers: {
@@ -100,10 +100,10 @@
           });
       });
   });
-  
-  
+
+
   </script>
-  
+
       <div class="button-container">
         <button class="watched-button" data-movie-title="{{ movie.Title }}" title="Watched">👁️</button>
       </div>
@@ -114,13 +114,13 @@
 
     document.addEventListener("DOMContentLoaded", function() {
       var buttons = document.querySelectorAll('.watched-button'); // Select all wishlist buttons
-  
+
       buttons.forEach(function(button) {
           button.addEventListener('click', function(event) {
               event.preventDefault();  // Prevent the default form submission
-  
+
               var movieTitle = this.getAttribute('data-movie-title');  // Use a data attribute for the title
-  
+
               fetch(`/api/add_to_watched/${encodeURIComponent(movieTitle)}`, {
                   method: 'POST',
                   headers: {
@@ -142,9 +142,9 @@
           });
       });
   });
-  
-  
-  
+
+
+
 </script>
 <script>
   function goBack() {
