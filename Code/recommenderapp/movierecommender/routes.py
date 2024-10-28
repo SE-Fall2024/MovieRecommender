@@ -91,7 +91,7 @@ def predict():
         movie_with_rating = {"title": movie, "rating": 5.0}
         training_data.append(movie_with_rating)
     recommendations = recommendForNewUser(training_data)
-    recommendations = recommendations[:5] # Top 5 recommended
+    recommendations = recommendations[:3] # Top 5 recommended
     print("recommendations Top 5", recommendations) #~
     for movie in recommendations:
         movie_info = get_movie_info(movie)

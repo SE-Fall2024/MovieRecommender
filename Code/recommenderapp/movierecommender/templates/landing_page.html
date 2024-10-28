@@ -232,13 +232,14 @@
             </div>
           </div>
           <div class="container">
+            <!-- Group49 -->
             <h2 style="color: #ebe5e6; font-size: 24px; font-weight: bold">
               Predicted movies:
             </h2>
-            <div class="selected-movies-container">
-              <div class="card-container" id="selectedMovies">
+            <div class="movie-display-container">
+              <div class="movie-grid" id="selectedMovies">
                 {% for movie in training_data %}
-                <div class="card">
+                <div class="individual-movie-card">
                   <h4>{{ movie.title }}</h4>
                   <p>Rating: {{ movie.rating }}</p>
                   <p>IMDb Rating: {{ movie.imdbRating }}</p>
@@ -246,6 +247,9 @@
                 </div>
                 {% endfor %}
               </div>
+            </div>
+            
+            </div>
             </div>
           </div>
         </div>
@@ -281,6 +285,38 @@
       /> -->
     </div>
     <!-- </div> -->
+     <!-- Group49 -->
+    <style>
+      
+      .movie-display-container {
+        margin-bottom: 20px; /* Space between sections */
+      }
+      
+      .movie-grid {
+        display: flex;               /* Enables flexbox layout */
+        flex-wrap: wrap;            /* Allows cards to wrap to the next line if necessary */
+        justify-content: flex-start; /* Align cards to the left */
+      }
+      
+      .individual-movie-card {
+        background-color: white;         /* Background color for cards */
+        border: 1px solid #ccc;          /* Border for cards */
+        border-radius: 5px;              /* Rounded corners */
+        margin: 10px;                    /* Margin around cards */
+        padding: 15px;                   /* Padding inside cards */
+        width: calc(20% - 20px);         /* Width of cards (20% width minus margin) */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+      }
+      
+      .individual-movie-card h4 {
+        margin: 0;                       /* Remove default margin */
+      }
+      
+      .individual-movie-card p {
+        margin: 5px 0;                  /* Margin for paragraphs */
+      }
+    </style>
+    <!-- Group49 -->
     <style>
       .top-div {
         text-align: center;
