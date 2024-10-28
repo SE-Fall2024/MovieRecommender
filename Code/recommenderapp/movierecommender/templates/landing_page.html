@@ -49,7 +49,8 @@
         <div class="logo-container">
           <h1 class="logo">CineVerse</h1>
         </div>
-        <div class="menu-container">
+        <!-- Group 49-->
+        <!--<div class="menu-container">
           <ul class="menu-list">
             <li class="menu-list-item active">Home</li>
             <li class="menu-list-item">Movies</li>
@@ -57,8 +58,8 @@
             <li class="menu-list-item">Popular</li>
             <li class="menu-list-item">Trends</li>
           </ul>
-        </div>
-        <!-- Group 49-->
+        </div> -->
+        
         <div class="profile-container">
           <img
             class="profile-picture"
@@ -80,55 +81,48 @@
 
         <style>
           body {
-            background-color: #2c2c2c; /* Background color for contrast */
-            color: white; /* Default text color */
-            font-family: Arial, sans-serif; /* Font family */
-            height: 2000px; /* Extra height to allow scrolling */
-            margin: 0; /* Remove default margin */
+            background-color: #2c2c2c;
+            color: white; 
+            font-family: Arial, sans-serif; 
+            height: 2000px; 
+            margin: 0; 
           }
 
           .profile-container {
-            position: relative; /* Allows absolute positioning of the dropdown */
-            display: inline-block; /* Keep container inline */
-            padding: 20px; /* Padding around the profile container */
+            position: relative; 
+            display: inline-block; 
+            padding: 20px; 
           }
 
           .profile-text-container {
-            display: flex; /* Align items in a row */
-            align-items: center; /* Center vertically */
-            cursor: pointer; /* Pointer cursor for interactivity */
+            display: flex; 
+            align-items: center; 
+            cursor: pointer; 
           }
 
           .dropdown-content {
-            display: none; /* Hide dropdown content by default */
+            display: none; 
             position: absolute;
-            top: 100%; /* Position below the dropdown arrow */
-            left: 80%; /* Center the dropdown content */
-            transform: translateX(-50%); /* Center alignment adjustment */
-            background-color: #333; /* Background color for the dropdown */
-            min-width: 160px; /* Minimum width of the dropdown */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
-            z-index: 1; /* Ensure dropdown appears above other elements */
-            border-radius: 4px; /* Slightly rounded corners */
+            top: 100%; 
+            left: 80%; 
+            transform: translateX(-50%); 
+            background-color: #333; 
+            min-width: 160px; 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+            z-index: 1; 
+            border-radius: 4px; 
           }
 
           .dropdown-content a {
-            color: white; /* Text color */
-            padding: 12px 16px; /* Padding for links */
-            text-decoration: none; /* No underline */
-            display: block; /* Links take full width */
+            color: white; 
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block; 
           }
 
           .dropdown-content a:hover {
-            background-color: #575757; /* Background color on hover */
-            transition: background-color 0.3s; /* Smooth background color transition */
-          }
-
-          /* Optional: Add some styling for the profile picture */
-          .profile-picture {
-            border-radius: 50%; /* Makes the profile picture circular */
-            width: 50px; /* Set a fixed width */
-            height: 50px; /* Set a fixed height */
+            background-color: #575757;
+            transition: background-color 0.3s; 
           }
         </style>
 
@@ -139,7 +133,7 @@
               dropdownMenu.style.display === "block" ? "none" : "block";
           }
 
-          // Close the dropdown if the user clicks outside of it
+          
           window.onclick = function (event) {
             if (
               !event.target.matches(".profile-text-container *") &&
@@ -153,26 +147,55 @@
             }
           };
 
-          // Prevent dropdown from closing when clicking on dropdown items
+          
           document
             .getElementById("dropdown-menu")
             .addEventListener("click", function (event) {
-              event.stopPropagation(); // Prevent click event from bubbling up to window
+              event.stopPropagation();
             });
         </script>
-
-        <!-- Group 49-->
       </div>
     </div>
     <div class="sidebar">
-      <i class="left-menu-icon fas fa-search"></i>
-      <i class="left-menu-icon fas fa-home"></i>
-      <i class="left-menu-icon fas fa-users"></i>
-      <i class="left-menu-icon fas fa-bookmark"></i>
-      <i class="left-menu-icon fas fa-tv"></i>
-      <i class="left-menu-icon fas fa-hourglass-start"></i>
-      <i class="left-menu-icon fas fa-shopping-cart"></i>
-    </div>
+  <i class="left-menu-icon fas fa-search" data-target="#predict"></i>
+  <i class="left-menu-icon fas fa-home" data-url="/"></i>
+  <i class="left-menu-icon fas fa-users" data-url="/account"></i>
+  <i class="left-menu-icon fas fa-bookmark" data-url="/wishlistItems"></i>
+  <i class="left-menu-icon fas fa-tv" data-url="/watched"></i>
+</div>
+
+<script>
+  
+  const searchIcon = document.querySelector('.left-menu-icon.fas.fa-search');
+  
+  if (searchIcon) {
+    searchIcon.addEventListener('click', () => {
+      const targetId = searchIcon.getAttribute('data-target');
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  
+  const icons = document.querySelectorAll('.left-menu-icon');
+
+  icons.forEach(icon => {
+    const targetUrl = icon.getAttribute('data-url');
+
+    
+    if (targetUrl) {
+      icon.addEventListener('click', () => {
+        window.location.href = targetUrl; 
+      });
+    }
+  });
+</script> 
+<!-- Group49 -->
+
+
 
     <!-- <div class="container"> -->
     <a href="/">
@@ -200,12 +223,21 @@
                 Unlock your Cinematic Journey,<br />
                 one recommendation at a time!
               </h1>
-              <input type="button" class="btn btn-danger" value="Start Now" />
+              <input type="button" class="btn btn-danger" value="Start Now" id="startNowButton"/>
             </div>
           </div>
         </div>
+        <!-- Group 49 -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+  $("#startNowButton").on("click", function() {
+    $('html, body').animate({
+      scrollTop: $("#targetSelect").offset().top
+    }, 1000); 
+  });
+</script>
 
-        <div style="margin-left: 5%; margin-bottom: 5%; margin-top: 5%">
+        <div style="margin-left: 5%; margin-bottom: 5%; margin-top: 5%" id="targetSelect">
           <h2
             style="
               color: #ebe5e6;
@@ -213,6 +245,7 @@
               font-weight: bold;
               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             "
+            
           >
             Please select movies
           </h2>
@@ -231,13 +264,23 @@
         id="predict"
         value="Predict"
     />
+
+    
     
 </div>
 
+
+
+
+ 
+
 <div class="container" style="display: none;" id="moviePredictDisplay">
-    <h2 style="color: #ebe5e6; font-size: 24px; font-weight: bold">
-        Predicted movies:
-    </h2>
+   
+<div style="margin-left: 5%; margin-bottom: 5%; margin-top: 5%">
+<h4 style="color: #ebe5e6; font-weight: bold;">
+    Predicted movies:
+</h4>
+</div>
     <div class="movie-display-container" id="movieDisplay">
         <div class="movie-grid" id="selectedMovies">
             {% for movie in training_data %}
@@ -272,15 +315,18 @@
       <div class="container">
 <div class="recommended-movies-container">
         <h2
-          style="
-            color: #ebe5e6;
-            font-size: 24px;
-            font-weight: bold;
-            margin-left: 3%;
-          "
-        >
-          HERE ARE A FEW MOVIE RECOMMENDATIONS!
-        </h2>
+  style="
+    color: #ebe5e6;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 3%;
+    margin-top: 20px; /* Adds space above the heading */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+    padding: 10px; /* Adds padding around the text */
+  "
+>
+  Recommended Movies -
+</h2>
 
         <div id="predictedMovies" class="scrolling-wrapper-flexbox">
           <!-- Movie Cards will be generated here -->
@@ -306,31 +352,31 @@
     <style>
       
       .movie-display-container {
-        margin-bottom: 20px; /* Space between sections */
+        margin-bottom: 20px;
       }
       
       .movie-grid {
-        display: flex;               /* Enables flexbox layout */
-        flex-wrap: wrap;            /* Allows cards to wrap to the next line if necessary */
-        justify-content: flex-start; /* Align cards to the left */
+        display: flex;              
+        flex-wrap: wrap;            
+        justify-content: flex-start;
       }
       
       .individual-movie-card {
-        background-color: white;         /* Background color for cards */
-        border: 1px solid #ccc;          /* Border for cards */
-        border-radius: 5px;              /* Rounded corners */
-        margin: 10px;                    /* Margin around cards */
-        padding: 15px;                   /* Padding inside cards */
-        width: calc(20% - 20px);         /* Width of cards (20% width minus margin) */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        background-color: white;     
+        border: 1px solid #ccc;      
+        border-radius: 5px;          
+        margin: 10px;                
+        padding: 15px;               
+        width: calc(20% - 20px);     
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
       }
       
       .individual-movie-card h4 {
-        margin: 0;                       /* Remove default margin */
+        margin: 0;                    
       }
       
       .individual-movie-card p {
-        margin: 5px 0;                  /* Margin for paragraphs */
+        margin: 5px 0;                 
       }
     </style>
     <!-- Group49 -->
@@ -699,6 +745,9 @@
         </div>
       `);
 
+        card.find(".movie-poster").on("click", () => {
+      window.location.href = `/movie/${movie.title}`; // Replace with the route structure you need
+    });
         container.append(card);
       });
     }
@@ -709,7 +758,7 @@
         url: "/api/movies",
         method: "GET",
         success: function (titles) {
-          fetchMovieDetails(titles); // Fetch details for the first 5 titles
+          fetchMovieDetails(titles.slice(0,5)); // Fetch details for the first 5 titles
         },
         error: function (error) {
           console.error("Error fetching movie titles:", error);

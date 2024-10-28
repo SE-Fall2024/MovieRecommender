@@ -214,9 +214,9 @@ def get_movies():
             if len(row) > 1:  # Check if there's a title in the second column
                 movies.append(row[1])  # Assuming titles are in the second column
 
-    num_random_movies = 5  
-    random_movies = random.sample(movies, min(num_random_movies, len(movies)))
-    return jsonify(random_movies)
+    # num_random_movies = 5  
+    # random_movies = random.sample(movies, min(num_random_movies, len(movies)))
+    return jsonify(movies)
 
 @app.route('/api/movie_details', methods=['GET'])
 def movie_details():
@@ -226,22 +226,22 @@ def movie_details():
     #print(url)
     response = requests.get(url)
     res=response.json()
-    if (res["Response"] == "Success"):
-        details = {
-            "title": title,
-            "poster": res["Poster"],
-            "genre": res["Genre"],
-            "director": res["Director"],
-            "rating": res["imdbRating"]
+    #if (res["Response"] == "Success"):
+    details = {
+        "title": title,
+        "poster": res["Poster"],
+        "genre": res["Genre"],
+        "director": res["Director"],
+        "rating": res["imdbRating"]
         }
-    else:
-        details={
-            "title":title,
-            "poster":url_for('static', filename='image.jpeg'),
-            "genre":"N/A",
-            "director":"N/A",
-            "rating":"N/A"
-        }
+    # else:
+    #     details={
+    #         "title":title,
+    #         "poster":url_for('static', filename='image.jpeg'),
+    #         "genre":"N/A",
+    #         "director":"N/A",
+    #         "rating":"N/A"
+    #     }
     return jsonify(details)
 
 @app.route("/api/add_to_wishlist/<string:title>", methods=["POST"])
