@@ -3,7 +3,7 @@ from flask_cors import CORS, cross_origin
 from movierecommender import app,db, bcrypt
 from movierecommender.forms import RegistrationForm, LoginForm
 from flask_login import login_user, current_user, logout_user, login_required
-from movierecommender.models import User, Post
+from movierecommender.models import User, Post, WishlistItem
 import json
 import sys
 import csv
@@ -12,6 +12,7 @@ import requests
 from movierecommender.prediction_scripts.item_based import recommendForNewUser
 from movierecommender.search import Search
 import random
+from sqlalchemy import func
 
 CORS(app, resources={r"/*": {"origins": "*"}})
  
@@ -243,5 +244,31 @@ def movie_details():
         }
     return jsonify(details)
 
+@app.route("/api/add_to_wishlist/<string:title>", methods=["POST"])
+def add_to_wishlist(title):
+    if not current_user.is_authenticated:
+        return jsonify({"error": "Please log in to add items to your wishlist."}), 401
 
+    new_wishlist_item = WishlistItem(title=title, user_id=current_user.id)
 
+    try:
+        db.session.add(new_wishlist_item)
+        db.session.commit()
+        return jsonify({"success": True, "message": "Movie added to your wishlist!"})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"success": False, "error": "Failed to add movie to wishlist."}), 500
+    
+@app.route("/wishlistItems")
+def wishlistItems():
+    wishlist_movies = (
+        db.session.query(WishlistItem.title, func.min(WishlistItem.added_on).label('added_on'))
+        .filter_by(user_id=current_user.id)
+        .group_by(WishlistItem.title)
+        .all()
+    )
+    
+    # Convert the results into a list of dictionaries for easier access in the template
+    movies_list = [{'title': title, 'added_on': added_on} for title, added_on in wishlist_movies]
+    
+    return render_template('wishlist.html', wishlist_movies=wishlist_movies)

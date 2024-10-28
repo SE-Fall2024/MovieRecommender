@@ -1,3 +1,4 @@
+<!--Group49-->
 {% extends "layout.html" %} {% block content %}
 <div class="movie-container">
   <div class="movie-content">
@@ -64,8 +65,45 @@
     </div>
     <div class="right-buttons">
       <div class="button-container">
-        <button class="wishlist-button" title="Wishlist">❤️</button>
+          <button class="wishlist-button" data-movie-title="{{ movie.Title }}" title="Add to Wishlist">❤️</button>
       </div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var buttons = document.querySelectorAll('.wishlist-button'); // Select all wishlist buttons
+  
+      buttons.forEach(function(button) {
+          button.addEventListener('click', function(event) {
+              event.preventDefault();  // Prevent the default form submission
+  
+              var movieTitle = this.getAttribute('data-movie-title');  // Use a data attribute for the title
+  
+              fetch(`/api/add_to_wishlist/${encodeURIComponent(movieTitle)}`, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.success) {  // Adjusted to check for string response
+                      alert("Added to wishlist!"); // Notify user that the movie was added
+                  } else {
+                      alert(data.error); // Notify user of error
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  alert("An error occurred"); // Notify user of error
+              });
+          });
+      });
+  });
+  
+  
+  </script>
+  
       <div class="button-container">
         <button class="watched-button" title="Watched">👁️</button>
       </div>

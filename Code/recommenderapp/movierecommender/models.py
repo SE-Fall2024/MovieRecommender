@@ -29,3 +29,12 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}','{self.content}')"
+    
+#Group49
+class WishlistItem(db.Model):
+    __tablename__ = 'wishlist_item'
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    added_on = db.Column(db.DateTime, default=datetime.utcnow)
