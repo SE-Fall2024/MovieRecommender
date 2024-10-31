@@ -170,7 +170,7 @@ JavaScript is a versatile and widely used programming language for adding intera
  
    a. `from movierecommender import db`
    
-   b. `from movierecommender.models import User,Post`
+   b. `from movierecommender.models import User,Post,WishlistItems, Watched, MovieLikes`
    
    c. `db.create_all()`
    
