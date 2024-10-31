@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2023 Madhur Dixit, Atharv Kale, Tanvi Raut, and Kohav Yadav
+Copyright (c) 2024 Saisumanth Tallapragada, Rajasri Bhagam, Shanmuka Venkata Sai Sathwik Palakurty
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
