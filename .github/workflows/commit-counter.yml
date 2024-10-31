@@ -18,15 +18,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
       - name: Get current commit count
         id: get_commit_count
         run: |
-          # If commit-count.txt exists, read and increment count; otherwise, start at 1
           if [[ -f commit-count.txt ]]; then
             count=$(cat commit-count.txt)
             count=$((count + 1))
@@ -59,12 +53,8 @@ jobs:
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-      - name: Fetch Latest Changes
-        run: git fetch origin
-
       - name: Commit and Push Badge
         run: |
           git add commit-count.txt badges/commit-badge.json
           git commit -m "Update commit count to ${{ steps.get_commit_count.outputs.count }}" || echo "No changes to commit"
-          git push origin HEAD:main || echo "Push failed; possible merge conflict"
-
+          git push origin HEAD:main
