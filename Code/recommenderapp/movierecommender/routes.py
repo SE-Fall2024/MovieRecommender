@@ -39,6 +39,21 @@ def get_movie_info(title):
         return  { 'Title': title, 'imdbRating':"N/A",'Genre':'N/A', "Poster":"https://www.creativefabrica.com/wp-content/uploads/2020/12/29/Line-Corrupted-File-Icon-Office-Graphics-7428407-1.jpg"}
 
 
+def get_movie_info1(title):
+    url = f"http://www.omdbapi.com/?t={title}&apikey={OMDB_API_KEY}"
+    print(url)
+    response = requests.get(url)
+    if response.status_code == 200:
+        res=response.json()
+        if(res['Response'] == "True"):
+            return res
+        else:  
+            return { 'Title': title, 'imdbRating':"N/A", 'Genre':'N/A',"Poster":"https://www.creativefabrica.com/wp-content/uploads/2020/12/29/Line-Corrupted-File-Icon-Office-Graphics-7428407-1.jpg"}
+    else:
+        return  { 'Title': title, 'imdbRating':"N/A",'Genre':'N/A', "Poster":"https://www.creativefabrica.com/wp-content/uploads/2020/12/29/Line-Corrupted-File-Icon-Office-Graphics-7428407-1.jpg"}
+
+
+
 @app.route("/home")
 def landing_page():
     return render_template("landing_page.html")
@@ -285,7 +300,7 @@ def wishlistItems():
 
     # Convert the results into a list of dictionaries for easier access in the template
     movies_list1 = [
-        {**get_movie_info(title), 'title': title, 'added_on': added_on}
+        {**get_movie_info1(title), 'title': title, 'added_on': added_on}
         for title, added_on in wishlist_movies
     ]
     
@@ -302,7 +317,7 @@ def watched():
     
     # Convert the results into a list of dictionaries for easier access in the template
     movies_list2 = [
-        {**get_movie_info(title), 'title': title, 'added_on': added_on}
+        {**get_movie_info1(title), 'title': title, 'added_on': added_on}
         for title, added_on in watched_movies
     ]
     print(movies_list2)
