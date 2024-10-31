@@ -1,12 +1,8 @@
 # <i>Movie Match 🎥 </i>
-    A perfect Movie Recommendation Website
-
-
-
+    Discover Your Next Movie Night Gem!
 
 
 ![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
-
 
 
  ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/A1231/MovieRecommender)
@@ -15,14 +11,13 @@
  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)  [![Code Coverage](https://github.com/MadhurDixit13/MovieRecommender/actions/workflows/codecov.yml/badge.svg)](https://github.com/MadhurDixit13/MovieRecommender/actions/workflows/codecov.yml) [![codecov](https://codecov.io/gh/MadhurDixit13/MovieRecommender/graph/badge.svg?token=9NGWAJ7BST)](https://codecov.io/gh/MadhurDixit13/MovieRecommender)  [![black](https://img.shields.io/badge/StyleChecker-black-purple.svg)](https://pypi.org/project/black/) [![DOI](https://zenodo.org/badge/721365396.svg)](https://zenodo.org/doi/10.5281/zenodo.10212435) ![GitHub release (with filter)](https://img.shields.io/github/v/release/A1231/MovieRecommender) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/A1231/MovieRecommender) 
 
 
-Discover Your Next Movie Night Gem!<br>
-Tired of endless scrolling, trying to find the perfect movie? 🍿<br><br>
+Are you tired of endless scrolling to find the perfect movie? Movie Match offers an expertly curated collection of must-watch films tailored to your tastes, all in a sleek and user-friendly interface. <br>
+Start exploring now and let the magic of movies unfold! 🍿✨
 ## Sneak peak! :wink:
-<img width="500" height="250" alt="color picker" src="asset/ui.jpeg" /><br><br>
-<img width="500" height="250" alt="color picker" src="asset/ezgif.com-video-to-gif-2.gif" /><br><br>
+<img width="500" height="250" alt="color picker" src="asset/MovieMatchGIF1.gif" /><br><br>
+<img width="500" height="250" alt="color picker" src="asset/MovieMatchGIF2.gif" /><br><be>
+<img width="500" height="250" alt="color picker" src="asset/MovieMatchGIF3.gif" /><br><br>
 
-
-<img width="500" height="250" alt="color picker" src="asset/ezgif.com-video-to-gif.gif" /><br><br>
 
 # <b>Contents</b>
 
