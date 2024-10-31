@@ -22,7 +22,8 @@ Start exploring now and let the magic of movies unfold! 🍿✨
 # <b>Contents</b>
 
 - [Introduction](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#introduction-%EF%B8%8F)<br>
-- [Future Project Plan](https://github.com/MadhurDixit13/MovieRecommender#future-project-plan-%F0%9F%94%AE)<br>
+- [New Features](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#introduction-%EF%B8%8F)<br>
+- [Future Project Plan](https://github.com/SE-Fall2024/MovieRecommender/edit/master/README.md#future-scope-)<br> 
 - [Video](https://github.com/MadhurDixit13/MovieRecommender#video-%EF%B8%8F)<br>
 - [Working](https://github.com/MadhurDixit13/MovieRecommender#working-)<br>
 - [Tech Stack](https://github.com/MadhurDixit13/MovieRecommender#tech-stack-)<br>
@@ -36,33 +37,36 @@ Start exploring now and let the magic of movies unfold! 🍿✨
 
 ## Introduction 👁️
 
-Say hello to our Movie Recommender! 🚀<br>
-Just tell us what type of movies you like, and we'll serve up a handpicked list of 10 must-watch movies tailored to your taste. No more movie-night dilemmas! 🎬<br>
-Save time, ditch the hassle, and let Movie Recommender do the work for you. Movie night has never been this easy and exciting! 🌟<br>
-Your perfect movie is just a click away. Get started now and make every movie night a hit! 👏<br><br>
+Get ready to embark on an exhilarating cinematic journey! Dive into our expertly curated collection of must-watch movies, all tailored to ignite your passion for film. With our sleek and user-friendly interface, your movie night experience is about to become smoother and more thrilling than ever before.
+<br>
+Why wait? Your perfect film is just a click away! Start exploring now and let the magic of movies unfold! 🍿✨ 
+<br>
+
 
 ![Hurray](https://media.giphy.com/media/jwY84621p1hhnG0ANK/giphy.gif)
 
 
+## Exciting New Features Just for You 🎉
 
-## What's new in phase 3?! :blush:
-1. Integration of youtube api to provide trailers for the recommended movies.
-2. Implemented User Authentication by developing a register and login page.
-3. Users are now able to create an account and access their account history (Liked movies, Disliked movies and movies yet to watch) for previously recommended movies.
-4. Integrated a Database using SQL alchemy to store user related data and movies.
-5. Enhancement of the user interface.
-6. Fixed bugs related to the feedback of recommended movies.
+- **Instant Recommendations:** Start exploring with a curated list of movies, handpicked to spark your interest immediately.
+- **Watch History:** Easily track every movie you've enjoyed, making it simple to revisit your favorites.
+- **Wishlist:** Save movies you’re excited to watch later—never miss out on a potential gem!
+- **Like Button:** Show your love for your favorite films! Each like helps us refine your recommendations further.
+- **In-Depth Movie Details:** Click on movie images for comprehensive information, including plots, trailers, and ratings—your one-stop hub for all things cinema!
+- **💻 Fresh UI and Smooth Navigation:** Enjoy a redesigned interface that ensures a seamless and enjoyable browsing experience.
+
+Your perfect film is just a click away! Get started now and transform every movie night into a blockbuster experience! 🍿
+
 <img width="500" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
 
 
+##  Future Scope 🚀:
 
-## Future Project Plan 🔮
-
-Following is what the future developers can add! :
-
-1. Create a dynamic movie list instead of using an existing movie csv file.
-2. Build a new feature that exhibits diversity across genres, casting choices, and different production styles.
-3. Enhancing the user profile page.
+- **Comments Section:** Enable users to leave comments under each movie page for better engagement and discussion.
+- **Website Deployment:** Launch the website with enhanced scalability to accommodate a growing user base.
+- **Two-Factor Authentication (2FA):** Implement 2FA for improved user security and account protection.
+- **Dislike Functionality:** Allow users to express their preferences with a dislike option for more refined recommendations.
+- **Manage Watchlist and Wishlist:** Enable users to easily remove movies from their watchlist and wishlist for better organization.
 
 
 Note: Our system can be virtually tested through Github Actions inbuilt feature of build and test queries using python.
