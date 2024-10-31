@@ -1,19 +1,23 @@
-name: Commit Counter
+name: Commit Count
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
 
 jobs:
   update_commit_count:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out the repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js environment (for badge creation)
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
@@ -21,6 +25,7 @@ jobs:
       - name: Get current commit count
         id: get_commit_count
         run: |
+          # If commit-count.txt exists, read and increment count; otherwise, start at 1
           if [[ -f commit-count.txt ]]; then
             count=$(cat commit-count.txt)
             count=$((count + 1))
@@ -41,12 +46,20 @@ jobs:
             "color": "blue"
           }
           EOF
+          mkdir -p badges
           mv badge.json badges/commit-badge.json
 
-      - name: Commit and push changes
+      - name: Configure Git
         run: |
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Setup Git Authentication
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+      - name: Commit and Push Badge
+        run: |
           git add commit-count.txt badges/commit-badge.json
-          git commit -m "Update commit count to ${{ steps.get_commit_count.outputs.count }}"
-          git push
+          git commit -m "Update commit count to ${{ steps.get_commit_count.outputs.count }}" || echo "No changes to commit"
+          git push origin HEAD:main
