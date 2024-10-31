@@ -1,0 +1,52 @@
+name: Commit Counter
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_commit_count:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js environment (for badge creation)
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Get current commit count
+        id: get_commit_count
+        run: |
+          if [[ -f commit-count.txt ]]; then
+            count=$(cat commit-count.txt)
+            count=$((count + 1))
+          else
+            count=1
+          fi
+          echo $count > commit-count.txt
+          echo "::set-output name=count::$count"
+
+      - name: Create commit count badge
+        run: |
+          count=${{ steps.get_commit_count.outputs.count }}
+          cat <<EOF > badge.json
+          {
+            "schemaVersion": 1,
+            "label": "Commits",
+            "message": "$count",
+            "color": "blue"
+          }
+          EOF
+          mv badge.json badges/commit-badge.json
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git add commit-count.txt badges/commit-badge.json
+          git commit -m "Update commit count to ${{ steps.get_commit_count.outputs.count }}"
+          git push
