@@ -22,16 +22,16 @@ Start exploring now and let the magic of movies unfold! 🍿✨
 # <b>Contents</b>
 
 - [Introduction](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#introduction-%EF%B8%8F)<br>
-- [New Features](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#introduction-%EF%B8%8F)<br>
-- [Future Project Plan](https://github.com/SE-Fall2024/MovieRecommender/edit/master/README.md#future-scope-)<br> 
-- [Video](https://github.com/MadhurDixit13/MovieRecommender#video-%EF%B8%8F)<br>
-- [Working](https://github.com/MadhurDixit13/MovieRecommender#working-)<br>
-- [Tech Stack](https://github.com/MadhurDixit13/MovieRecommender#tech-stack-)<br>
-- [Requirements and Setup](https://github.com/MadhurDixit13/MovieRecommender#requirements-and-setup-%EF%B8%8F)<br>
-- [Usage](https://github.com/MadhurDixit13/MovieRecommender#usage)<br>
-- [Documentation](https://github.com/MadhurDixit13/MovieRecommender#documentation-)<br>
-- [Bug](https://github.com/MadhurDixit13/MovieRecommender#bug-)<br>
-- [License](https://github.com/MadhurDixit13/MovieRecommender#license-%F0%9F%93%83)
+- [New Features](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#exciting-new-features-just-for-you-)<br>
+- [Future Project Plan](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#future-scope-)<br> 
+- [Video]([https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#video-%EF%B8%8F)<br>
+- [Working](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#-working-demonstration)<br>
+- [Tech Stack](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#tech-stack-used-)<br>
+- [Requirements and Setup](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#requirements-and-setup-%EF%B8%8F)<br>
+- [Usage](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#usage)<br>
+- [Documentation](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#documentation-)<br>
+- [Bug](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#bug-)<br>
+- [License](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#license-)
 
 
 
