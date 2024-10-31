@@ -1,6 +1,6 @@
 ## Contributing:
 
-* If you would like to contribute and collaborate for this repository, then please intimate us through email at mvdixit@ncsu.edu
+* If you would like to contribute and collaborate for this repository, then please intimate us through email at spalaku@ncsu.edu
 
 ## Purpose of Contributing:
 
@@ -18,7 +18,7 @@
 
 ## Code of Conduct:
 
-* Please go through the [Code of Conduct](https://github.com/MadhurDixit13/MovieRecommender/blob/master/CODE_OF_CONDUCT.md) before you begin contributing.
+* Please go through the [Code of Conduct](https://github.com/SE-Fall2024/MovieRecommender/blob/master/CODE_OF_CONDUCT.md) before you begin contributing.
 
 ## Pull Request Submission Guidelines
 
