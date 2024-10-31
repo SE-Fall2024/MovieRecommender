@@ -80,16 +80,28 @@ Make sure you taste your own medicine first and take into account other peoples 
 
 
 
-## Working 📱
+## 🎬 Working Demonstration
 
-- Below working displays the system also evaluates movie attributes such as genre, cast, director, and user-generated reviews. 
-- By combining these user-specific data and film characteristics, the recommender system employs machine learning to generate tailored movie recommendations.
-- This enables users to discover new films that align with their individual tastes, making the movie-watching experience more enjoyable and engaging. 
-- Furthermore, recommender systems often employ a feedback loop, where users' interactions and feedback help refine the recommendations over time, ensuring that the suggestions remain relevant.
+- **Personalized Recommendations**: The system evaluates movie attributes such as genre, cast, director, and user-generated reviews to provide tailored movie suggestions.
+
+- **Watch History**: Keep track of every movie you've enjoyed, making it easy to revisit your favorites and discover new films that match your preferences.
+
+- **User Engagement**: Users can track their watch history, making it easy to revisit favorites and discover new films that match their preferences.
+
+- **Wishlist Feature**: Save movies you're excited to watch later, ensuring you never miss out on potential gems!
+
+- **Like Button**: Express your love for favorite films! Each like refines future recommendations, improving personalization.
+
+- **In-Depth Movie Details**: Click on movie images for comprehensive information, including plots, trailers, and ratings—your one-stop hub for all things cinema!
+
+- **Instant Recommendations**: Browse a curated list of handpicked movies right from the start, designed to spark your interest.
+
+- **User-Friendly Design**: Enjoy a fresh UI and smooth navigation, making the movie-watching experience seamless and exciting!
+
+- **Feedback Loop**: Continuous user interactions and feedback help refine recommendations over time, ensuring relevance and alignment with evolving preferences.
 
 
-
-
+Your perfect film is just a click away. Get started now and transform every movie night into a blockbuster experience! 🍿
 
 
 ## Tech stack used 👨‍💻
@@ -146,36 +158,24 @@ JavaScript is a versatile and widely used programming language for adding intera
 - Install all required python packages
     `pip install -r requirements.txt `
 
-## Usage
-1. `cd Code/recommenderapp`
-2. `python3 app.py`
 
 ## Follow these steps to run our project on your system! 🔮
 1. Clone the project onto your system.
-2. Incluse an api_key.txt file with the api key for the movie API - Take a look at this link: (https://developer.themoviedb.org/reference/intro/getting-started).
-3. Install the following packages:
-   
-   a. `pip install flask-sqlalchemy`
-
-   b. `pip install flask-bcrypt`
-
-   c. `pip install flask-login`
-
-   d. `pip install flask-wtf`
-
-   e. `pip install email-validator`
-   
-5. Follow these steps to create the database -> Execute in python terminal:
+2. Incluse an api_key.txt file with the api key for the movie API - Take a look at this link: (https://developer.themoviedb.org/reference/intro/getting-started).   
+3. Follow these steps to create the database -> Execute in python terminal:
  
    a. `from movierecommender import db`
    
-   b. `from movierecommender.models import User,Post,WishlistItems, Watched, MovieLikes`
+   b. `from movierecommender.models import User,Post,WishlistItem, Watched, MovieLikes`
    
    c. `db.create_all()`
    
 7. Run `cd Code/recommenderapp` and `python3 app.py`
 
-
+## Usage
+1. `cd Code/recommenderapp`
+2. `python3 app.py`
+   
 ## Documentation 📚
 Refer to Wiki page [here](https://github.com/MadhurDixit13/MovieRecommender/wiki/Documentation)
 
