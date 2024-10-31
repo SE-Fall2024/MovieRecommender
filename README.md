@@ -1,7 +1,6 @@
 # <i>Movie Match 🎥 </i>
-    A collaborative filtering based recommendation engine!
+    A perfect Movie Recommendation Website
 
-<p style="font-size: small;">A perfect Movie Recommendation Website</p>
 
 
 
