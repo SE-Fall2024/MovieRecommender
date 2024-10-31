@@ -4,3 +4,8 @@ Flask
 Flask-Cors
 autopep8
 requests
+flask-sqlalchemy
+flask-bcrypt
+flask-login
+flask-wtf
+email-validator
