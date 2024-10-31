@@ -1,0 +1,30 @@
+name: Issues Open
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  update_badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get number of open issues
+        id: get_issues
+        run: |
+          # Fetch the number of open issues
+          OPEN_ISSUES=$(curl -s "https://api.github.com/repos/${{ github.repository }}/issues?state=open" | jq '. | length')
+          echo "OPEN_ISSUES=${OPEN_ISSUES}" >> $GITHUB_ENV
+
+      - name: Update README with open issues badge
+        run: |
+          # Update the README file with the badge
+          BADGE="![GitHub open issues](https://img.shields.io/github/issues/open/${{ github.repository }})"
+          sed -i.bak "s|![GitHub open issues](.*)|$BADGE|" README.md
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "Update open issues badge" || echo "No changes to commit"
+          git push
