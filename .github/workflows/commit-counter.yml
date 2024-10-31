@@ -59,6 +59,17 @@ jobs:
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
+      - name: Fetch Latest Changes
+        run: |
+          git fetch origin
+
+      - name: Rebase Latest Changes
+        run: |
+          git rebase origin/main || {
+            echo "Rebase failed; trying to merge instead."
+            git merge origin/main
+          }
+
       - name: Commit and Push Badge
         run: |
           git add commit-count.txt badges/commit-badge.json
