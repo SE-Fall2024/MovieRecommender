@@ -5,7 +5,7 @@
 ![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
 
 
-![GitHub commit count](https://img.shields.io/github/commit-activity/total/group-name/repo-name)
+![GitHub commit count](https://img.shields.io/github/commit-activity/total/SE-Fall2024/MovieRecommender)
  ![GitHub issues](https://img.shields.io/github/issues-raw/SE-Fall2024/MovieRecommender)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/SE-Fall2024/MovieRecommender)
  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)  
