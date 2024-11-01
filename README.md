@@ -5,6 +5,8 @@
 ![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
 
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/SE-Fall2024/MovieRecommender)
+![Latest commit](https://img.shields.io/github/last-commit/SE-Fall2024/MovieRecommender)
+
 
  ![GitHub issues](https://img.shields.io/github/issues-raw/SE-Fall2024/MovieRecommender)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/SE-Fall2024/MovieRecommender)
