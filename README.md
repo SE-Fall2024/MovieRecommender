@@ -11,7 +11,8 @@
  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)  
 
 [![codecov](https://codecov.io/gh/MadhurDixit13/MovieRecommender/graph/badge.svg?token=9NGWAJ7BST)](https://codecov.io/gh/MadhurDixit13/MovieRecommender)
-[![Code Coverage](https://github.com/SE-Fall2024/MovieRecommender/actions/workflows/codecov.yml/badge.svg)](https://github.com/SE-Fall2024/MovieRecommender/actions/workflows/codecov.yml)  [![black](https://img.shields.io/badge/StyleChecker-black-purple.svg)](https://pypi.org/project/black/) [![DOI](https://zenodo.org/badge/721365396.svg)](https://zenodo.org/doi/10.5281/zenodo.10212435) ![GitHub release (with filter)](https://img.shields.io/github/v/release/SE-Fall2024/MovieRecommender) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SE-Fall2024/MovieRecommender) 
+[![Code Coverage](https://github.com/SE-Fall2024/MovieRecommender/actions/workflows/codecov.yml/badge.svg)](https://github.com/SE-Fall2024/MovieRecommender/actions/workflows/codecov.yml)  [![black](https://img.shields.io/badge/StyleChecker-black-purple.svg)](https://pypi.org/project/black/) [![DOI](https://zenodo.org/badge/721365396.svg)](https://zenodo.org/doi/10.5281/zenodo.10212435) [![GitHub release (with filter)](https://img.shields.io/github/v/release/SE-Fall2024/MovieRecommender)](https://img.shields.io/github/v/release/SE-Fall2024/MovieRecommender
+) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SE-Fall2024/MovieRecommender) 
 
 
 Are you tired of endless scrolling to find the perfect movie? Movie Match offers an expertly curated collection of must-watch films tailored to your tastes, all in a sleek and user-friendly interface. <br>
