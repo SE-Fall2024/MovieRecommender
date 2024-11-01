@@ -109,9 +109,14 @@ jobs:
       - name: Get total commit count
         id: commit_count
         run: |
-          # Use GitHub API to get the commit count
-          COMMIT_COUNT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/commits" | jq '. | length')
+          # Use GitHub API to get the commit count for the default branch
+          DEFAULT_BRANCH="${{ github.ref }}"  # The branch to query
+          COMMIT_COUNT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/commits?sha=${DEFAULT_BRANCH}" | jq '. | length')
           echo "COMMIT_COUNT=$COMMIT_COUNT" >> $GITHUB_ENV  # Set the commit count as an environment variable
+
+      - name: Log API Response
+        run: |
+          curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/commits?sha=${DEFAULT_BRANCH}"
 
       - name: Generate commit count badge
         uses: emibcn/badge-action@v1
@@ -131,3 +136,4 @@ jobs:
 
       - name: List repository contents
         run: ls -la  # List contents to debug
+
