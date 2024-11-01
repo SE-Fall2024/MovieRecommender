@@ -14,6 +14,8 @@ d. pip install flask-wtf
 
 e. pip install email-validator
 
+f. pip install flask-migrate
+
 4. Follow these steps to create the database -> Execute in python terminal:
 
 a. from movierecommender import db
