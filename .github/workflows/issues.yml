@@ -1,30 +1,35 @@
-name: Issues Open
+name: Update Issue Badge
 
 on:
-  push:
-    branches: [ "main" ]
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight
+  workflow_dispatch:    # Allows manual triggering of workflow
 
 jobs:
-  update_badge:
+  update-badge:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Check out repository
+        uses: actions/checkout@v3
 
-      - name: Get number of open issues
-        id: get_issues
+      - name: Fetch issue counts
+        id: issue_counts
         run: |
-          # Fetch the number of open issues
-          OPEN_ISSUES=$(curl -s "https://api.github.com/repos/${{ github.repository }}/issues?state=open" | jq '. | length')
-          echo "OPEN_ISSUES=${OPEN_ISSUES}" >> $GITHUB_ENV
+          OPEN_ISSUES=$(curl -s https://api.github.com/repos/SE-Fall2024/MovieRecommender | jq '.open_issues_count')
+          CLOSED_ISSUES=$(curl -s https://api.github.com/repos/SE_Fall2024/MovieRecommender/issues?state=closed | jq 'length')
+          echo "open_issues=$OPEN_ISSUES" >> $GITHUB_ENV
+          echo "closed_issues=$CLOSED_ISSUES" >> $GITHUB_ENV
 
-      - name: Update README with open issues badge
+      - name: Update README with badge
         run: |
-          # Update the README file with the badge
-          BADGE="![GitHub open issues](https://img.shields.io/github/issues/open/${{ github.repository }})"
-          sed -i.bak "s|![GitHub open issues](.*)|$BADGE|" README.md
-          git config --local user.email "github-actions@github.com"
-          git config --local user.name "GitHub Action"
+          sed -i "s/OPEN_ISSUES/${{ env.open_issues }}/g" README.md
+          sed -i "s/CLOSED_ISSUES/${{ env.closed_issues }}/g" README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "sathwik.palakurty@gmail.com"
+          git config --local user.name "github-actions"
           git add README.md
-          git commit -m "Update open issues badge" || echo "No changes to commit"
+          git commit -m "Update issue badges in README"
           git push
