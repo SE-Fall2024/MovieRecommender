@@ -18,19 +18,22 @@ jobs:
         run: |
           COMMIT_COUNT=$(git rev-list --count HEAD)
           echo "commit_count=$COMMIT_COUNT" >> $GITHUB_ENV
+          echo "Total commits: $COMMIT_COUNT"
 
-      - name: Update README with commit count
+      - name: Update README with commit count badge
         run: |
-          sed -i "s/COMMITS_COUNT/${{ env.commit_count }}/g" README.md
-
-      - name: Verify README content
-        run: cat README.md  # Shows README content for debugging
+          # Replace placeholder with actual commit count badge link
+          echo "Updating README.md with the new commit count"
+          COMMIT_BADGE="![Total commits](https://img.shields.io/badge/Commits-${{ env.commit_count }}-blue)"
+          # Use echo to write directly, replacing entire line for reliability
+          sed -i "s|![Total commits](.*)|$COMMIT_BADGE|" README.md
+          cat README.md  # Check README content
 
       - name: Commit changes if there are any
         run: |
           git config --local user.email "sathwik.palakurty@gmail.com"
-          git config --local user.name "github-actions"
+          git config --local user.name "github-actions1"
           git add README.md
-          git diff --cached  # Check if there are changes
+          git diff --cached  # Show staged changes
           git commit -m "Update commit count badge in README" || echo "No changes to commit"
           git push || echo "Nothing to push"
