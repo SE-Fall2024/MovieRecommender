@@ -63,7 +63,8 @@ Why wait? Your perfect film is just a click away! Start exploring now and let th
 
 Your perfect film is just a click away! Get started now and transform every movie night into a blockbuster experience! 🍿
 
-<img width="500" height="250" alt="color picker" src="asset/giphy.gif" /><br><br>
+![Hurray](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnhkbmM1cWZrOTlqbGQxYmg0cW9xanFlNjBmYXJqcmljNGo5YjR1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0ErRtQDgjMtQcjsI/giphy.gif)
+<br><br>
 
 
 ##  Future Scope 🚀:
