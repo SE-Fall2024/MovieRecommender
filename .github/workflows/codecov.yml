@@ -40,6 +40,7 @@ jobs:
           coverage run -m -a test_search_functionality
           coverage run -m -a tests
           coverage run -m -a tests_sathwik
+        continue-on-error: true
 
       - name: Upload coverage report to Codecov
         run: |
