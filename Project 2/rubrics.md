@@ -13,9 +13,9 @@ We provided a modern user interface with a simple layout, making it simpler for 
 The OMDb API's integration forms a major part of our upgrade. This gave us access to crucial movie information, including genre, IMDb ratings, and movie posters. Our users now have access to more information about the movie that is being recommended to them.
 
 The CORS (Cross-Origin Resource Sharing) problem was one of the technical issues we ran into and overcame. We have fixed this problem and included the "access-control-allow-origin" header. These combined improvements have produced a movie selection system that is not only good-looking but also more informative.
-| Notes                                                                                                             | Shanmuka Venkata Sai Sathwik Palakurty                    | Saisumanth Tallapragada                    | Rajasri Bhagam                    |
+| Notes                                                                                                             | Shanmuka Venkata Sai Sathwik Palakurty                    | Saisumanth Tallapragada                    | Rajasri Bhagam                    | Evidence                    |
 | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------ | --------------------------------- |
-| Workload is spread over the whole team (one team member is often X times more productive than the others...but nevertheless, here is a track record that everyone is contributing a lot) | evidence in GH |
+| Workload is spread over the whole team (one team member is often X times more productive than the others...but nevertheless, here is a track record that everyone is contributing a lot) |  |  |  |
 | but nevertheless, here is a track record that everyone is contributing a lot) |  |  |  |
 | Number of commits. |  |  |  |
 | Number of commits: by different people. |  |  |  |
