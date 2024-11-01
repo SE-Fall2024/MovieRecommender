@@ -29,6 +29,7 @@ jobs:
           pip install flask-login
           pip install flask-wtf
           pip install email-validator
+          pip install flask-migrate
 
       - name: Run tests and generate coverage
         run: |
