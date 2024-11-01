@@ -1,11 +1,50 @@
+# name: Update Commit Count Badge
+
+# on:
+#   push:
+#     branches: [master]
+#   pull_request:
+#     branches: [master]
+
+
+# jobs:
+#   update-commit-badge:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Check out repository
+#         uses: actions/checkout@v3
+
+#       - name: Create badges directory
+#         run: mkdir -p badges  # Create the badges directory if it doesn't exist
+
+#       - name: Get total commit count
+#         id: commit_count
+#         run: |
+#           COMMIT_COUNT=$(git rev-list --count HEAD)
+#           echo "COMMIT_COUNT=$COMMIT_COUNT" >> $GITHUB_ENV  # Set the commit count as an environment variable
+
+#       - name: Generate commit count badge
+#         uses: emibcn/badge-action@v1
+#         with:
+#           label: "Commits"
+#           status: "${{ env.COMMIT_COUNT }}"  # Display the commit count in the badge
+#           color: "blue"
+#           path: "badges/commits-badge.svg"  # Path to save the badge
+
+#       - name: Commit changes if there are any
+#         run: |
+#           git config --local user.email "sathwik.palakurty@gmail.com"
+#           git config --local user.name "github-actions"
+#           git add badges/commits-badge.svg
+#           git commit -m "Update commit count badge" || echo "No changes to commit"
+#           git push || echo "Nothing to push"
+
 name: Update Commit Count Badge
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-
+  push:                   # Trigger on push to any branch
+  pull_request:          # Trigger on pull requests
 
 jobs:
   update-commit-badge:
@@ -32,6 +71,9 @@ jobs:
           color: "blue"
           path: "badges/commits-badge.svg"  # Path to save the badge
 
+      - name: List repository contents
+        run: ls -la  # List contents to debug
+
       - name: Commit changes if there are any
         run: |
           git config --local user.email "sathwik.palakurty@gmail.com"
@@ -39,4 +81,3 @@ jobs:
           git add badges/commits-badge.svg
           git commit -m "Update commit count badge" || echo "No changes to commit"
           git push || echo "Nothing to push"
-
