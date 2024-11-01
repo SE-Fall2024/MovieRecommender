@@ -30,6 +30,9 @@ jobs:
           pip install flask-wtf
           pip install email-validator
           pip install flask-migrate
+          pip install requests
+          pip install numpy
+          pip install autopep8
 
       - name: Run tests and generate coverage
         run: |
