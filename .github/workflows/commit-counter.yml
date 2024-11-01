@@ -1,10 +1,11 @@
 name: Update Commit Count Badge
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight
-  workflow_dispatch:       # Allows manual triggering of workflow
-
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+    
 jobs:
   update-commit-badge:
     runs-on: ubuntu-latest
@@ -25,7 +26,7 @@ jobs:
           label: "Commits"
           message: "${{ env.commit_count }}"
           color: "blue"
-          path: "badges/commits-badge.svg"  # Saves badge to badges folder
+          path: "badges/commits-badge.svg" 
 
       - name: Commit changes if there are any
         run: |
