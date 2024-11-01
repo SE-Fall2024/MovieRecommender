@@ -15,7 +15,7 @@
 [![codecov](https://codecov.io/gh/MadhurDixit13/MovieRecommender/graph/badge.svg?token=9NGWAJ7BST)](https://codecov.io/gh/MadhurDixit13/MovieRecommender)
 [![Code Coverage](https://github.com/SE-Fall2024/MovieRecommender/actions/workflows/codecov.yml/badge.svg)](https://github.com/SE-Fall2024/MovieRecommender/actions/workflows/codecov.yml) 
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/SE-Fall2024/MovieRecommender) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SE-Fall2024/MovieRecommender) 
-
+[![DOI](https://zenodo.org/badge/878926658.svg)](https://doi.org/10.5281/zenodo.14025055)
 
 Are you tired of endless scrolling to find the perfect movie? Movie Match offers an expertly curated collection of must-watch films tailored to your tastes, all in a sleek and user-friendly interface. <br>
 Start exploring now and let the magic of movies unfold! 🍿✨
