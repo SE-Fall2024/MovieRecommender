@@ -14,7 +14,7 @@ The OMDb API's integration forms a major part of our upgrade. This gave us acces
 
 The CORS (Cross-Origin Resource Sharing) problem was one of the technical issues we ran into and overcame. We have fixed this problem and included the "access-control-allow-origin" header. These combined improvements have produced a movie selection system that is not only good-looking but also more informative.
 | Notes                                                                                                             | Shanmuka Venkata Sai Sathwik Palakurty                    | Saisumanth Tallapragada                    | Rajasri Bhagam                    | Evidence                    |
-| ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------ | --------------------------------- |
+| ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------ | --------------------------------- | ---------------------------- |
 | Workload is spread over the whole team (one team member is often X times more productive than the others...but nevertheless, here is a track record that everyone is contributing a lot) |  |  |  |
 | but nevertheless, here is a track record that everyone is contributing a lot) |  |  |  |
 | Number of commits. |  |  |  |
@@ -48,5 +48,5 @@ The CORS (Cross-Origin Resource Sharing) problem was one of the technical issues
 | Badges showing your style checkers |  |  |  |
 | Badges showing your code formatters |  |  |  |
 | Badges showing your syntax checkers |  |  |  |
-| Badges showing your code coverage tools | README |  |  |
-| Badges showing any other Other automated analysis tools | README |  |  |
+| Badges showing your code coverage tools |  |  |  |
+| Badges showing any other Other automated analysis tools |  |  |  |
