@@ -1,9 +1,9 @@
-name: Update Commit Badge
+name: Update Commit Count Badge
 
 on:
   schedule:
     - cron: '0 0 * * *'  # Runs daily at midnight
-  workflow_dispatch:    # Allows manual triggering of workflow
+  workflow_dispatch:       # Allows manual triggering of workflow
 
 jobs:
   update-commit-badge:
@@ -13,15 +13,15 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Fetch commit count
+      - name: Get total commit count
         id: commit_count
         run: |
-          COMMIT_COUNT=$(curl -s https://api.github.com/repos/SE-Fall2024/MovieRecommender | jq '.size')
+          COMMIT_COUNT=$(git rev-list --count HEAD)
           echo "commit_count=$COMMIT_COUNT" >> $GITHUB_ENV
 
-      - name: Update README with commit count badge
+      - name: Update README with commit count
         run: |
-          sed -i "s/COMMIT_COUNT/${{ env.commit_count }}/g" README.md
+          sed -i "s/COMMITS_COUNT/${{ env.commit_count }}/g" README.md
 
       - name: Commit changes
         run: |
