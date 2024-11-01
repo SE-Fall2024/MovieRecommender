@@ -130,6 +130,26 @@ class MovieAppTestCase(unittest.TestCase):
         data = response.json
         self.assertEqual(len(data["results"]), 0)
 
+ # 6. Movie Detail Retrieval
+    def test_movie_detail_retrieval(self):
+        response = self.client.get('/movie/Inception')
+        self.assertEqual(response.status_code, 200)
+        data = response.json
+        self.assertIn('Title', data)
+
+    def test_movie_detail_not_found(self):
+        response = self.client.get('/movie/NonexistentMovie')
+        self.assertEqual(response.status_code, 404)
+
+    # 7. Miscellaneous
+    def test_successful_logout(self):
+        self.login_user("test@example.com", "Test@123")
+        response = self.client.get('/logout')
+        self.assertEqual(response.status_code, 200)
+
+if __name__ == "__main__":
+    unittest.main()
+
    
 
 
