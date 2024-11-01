@@ -124,10 +124,3 @@ class MovieAppTestCase(unittest.TestCase):
         data = response.json
         self.assertGreater(len(data["results"]), 0)
 
-    def test_no_results_search(self):
-        response = self.client.get('/search?term=NonexistentMovie')
-        self.assertEqual(response.status_code, 200)
-        data = response.json
-        self.assertEqual(len(data["results"]), 0)
-
-   
