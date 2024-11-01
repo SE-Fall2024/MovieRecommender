@@ -23,10 +23,14 @@ jobs:
         run: |
           sed -i "s/COMMITS_COUNT/${{ env.commit_count }}/g" README.md
 
-      - name: Commit changes
+      - name: Verify README content
+        run: cat README.md  # Shows README content for debugging
+
+      - name: Commit changes if there are any
         run: |
           git config --local user.email "sathwik.palakurty@gmail.com"
           git config --local user.name "github-actions"
           git add README.md
-          git commit -m "Update commit count badge in README"
-          git push
+          git diff --cached  # Check if there are changes
+          git commit -m "Update commit count badge in README" || echo "No changes to commit"
+          git push || echo "Nothing to push"
