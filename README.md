@@ -49,7 +49,7 @@ Why wait? Your perfect film is just a click away! Start exploring now and let th
 <br>
 
 
-![Hurray](https://media.giphy.com/media/jwY84621p1hhnG0ANK/giphy.gif)
+![Hurray](https://tenor.com/view/minions-gif-25854132)
 
 
 ## Exciting New Features Just for You 🎉
