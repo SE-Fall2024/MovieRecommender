@@ -16,6 +16,7 @@ The CORS (Cross-Origin Resource Sharing) problem was one of the technical issues
 | Notes                                                                                                             | Evidence                   |
 | ----------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | Workload is spread over the whole team (one team member is often X times more productive than the others...but nevertheless, here is a track record that everyone is contributing a lot) | evidence in GH |
+| but nevertheless, here is a track record that everyone is contributing a lot) | evidence in GH |
 | Number of commits. | in GH |
 | Number of commits: by different people. | in GH |
 | Issues reports: there are many. | evidence in GH |
@@ -26,17 +27,17 @@ The CORS (Cross-Origin Resource Sharing) problem was one of the technical issues
 | Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing. | in GH |
 | Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. | demo video |
 | Use of version control tools. | GH |
-| Use of style checkers. | config files |
-| Use of code formatters. | config files |
-| Use of syntax checkers. | config files |
-| Use of code coverage. | config files |
-| Other automated analysis tools. | config files |
-| test cases exist. | dozens of tests |
-| test cases are routinely executed. | CI tools |
-| Chat channel: exists. | link/screenshots |
-| Evidence that the whole team is using the same tools: everyone can get to all tools and files. | open source tools |
+| Test cases exist. | dozens of tests |
+| Test cases are routinely executed. | CI tools |
+| Issues are discussed before they are closed |  |
+| Chat channel: exists. | link or screenshots |
+| Test cases:a large proportion of the issues related to handling failing cases. | dozens of tests |
+| Evidence that the whole team is using the same tools |  |
+| Evidence that the whole team is using the same tools |  |
+| Evidence that the whole team is using the same tools |  |
+| Evidence that the members of the team are working across multiple places in the code base |  |
 | Short release cycles | more commits with features |
-| The file `.gitignore` lists what files should not be saved to the repo | GH |
+| The file .gitignore lists what files should not be saved to the repo | GH |
 | The file `INSTALL.md` lists how to install the code | GH |
 | The file `LICENSE.md` lists rules of usage for this repo | GH |
 | The file `CODE-OF-CONDUCT.md` lists rules of behavior for this repo | GH |
@@ -48,3 +49,4 @@ The CORS (Cross-Origin Resource Sharing) problem was one of the technical issues
 | Badges showing your code formatters | README |
 | Badges showing your syntax checkers | README |
 | Badges showing your code coverage tools | README |
+| Badges showing any other Other automated analysis tools | README |
