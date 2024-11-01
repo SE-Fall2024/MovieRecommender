@@ -181,7 +181,7 @@ JavaScript is a versatile and widely used programming language for adding intera
 2. `python3 app.py`
    
 ## Documentation 📚
-Refer to Wiki page [here(https://github.com/SE-Fall2024/MovieRecommender/wiki/Documentation)]
+Refer to Wiki page [here](https://github.com/SE-Fall2024/MovieRecommender/wiki/Documentation)
 
 
 ## Bug? 🐛
