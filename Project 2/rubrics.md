@@ -1,6 +1,6 @@
 # &nbsp;&nbsp;SE_Project 2
 The following video shows the original project
-https://www.youtube.com/watch?v=21Rol3h_CQQ
+
 <br>
 The following video showcases our project with significant changes: 
 https://youtu.be/uYQ4t7GOEyU
