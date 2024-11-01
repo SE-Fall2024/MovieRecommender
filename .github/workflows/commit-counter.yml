@@ -42,6 +42,9 @@
 
 name: Update Commit Count Badge
 
+permissions:
+  contents: write  
+
 on:
   push:                   # Trigger on push to any branch
   pull_request:          # Trigger on pull requests
