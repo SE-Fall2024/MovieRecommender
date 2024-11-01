@@ -10,7 +10,7 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/SE-Fall2024/MovieRecommender)
  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)  
 
-[codecov](https://codecov.io/gh/MadhurDixit13/MovieRecommender/graph/badge.svg?token=9NGWAJ7BST)](https://codecov.io/gh/MadhurDixit13/MovieRecommender)
+[![codecov](https://codecov.io/gh/MadhurDixit13/MovieRecommender/graph/badge.svg?token=9NGWAJ7BST)](https://codecov.io/gh/MadhurDixit13/MovieRecommender)
 [![Code Coverage](https://github.com/SE-Fall2024/MovieRecommender/actions/workflows/codecov.yml/badge.svg)](https://github.com/SE-Fall2024/MovieRecommender/actions/workflows/codecov.yml)  [![black](https://img.shields.io/badge/StyleChecker-black-purple.svg)](https://pypi.org/project/black/) [![DOI](https://zenodo.org/badge/721365396.svg)](https://zenodo.org/doi/10.5281/zenodo.10212435) ![GitHub release (with filter)](https://img.shields.io/github/v/release/A1231/MovieRecommender) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/A1231/MovieRecommender) 
 
 
