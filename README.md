@@ -36,6 +36,7 @@ Start exploring now and let the magic of movies unfold! 🍿✨
 - [Requirements and Setup](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#requirements-and-setup-%EF%B8%8F)<br>
 - [Usage](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#usage)<br>
 - [Documentation](https://github.com/SE-Fall2024/MovieRecommender#documentation-)<br>
+- [Why choose Movie Match?]<br>
 - [Bug](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#bug-)<br>
 - [License](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#license-)
 
@@ -185,6 +186,9 @@ JavaScript is a versatile and widely used programming language for adding intera
    
 ## Documentation 📚
 Refer to Wiki page [here](https://github.com/SE-Fall2024/MovieRecommender/wiki/Documentation)
+
+## Why should you choose Movie Match?
+[![Watch the video](https://markdown-videos-api.jorgenkh.no/youtube/AzeZN4SnnrU )](https://youtu.be/AzeZN4SnnrU) 
 
 
 ## Bug? 🐛
