@@ -12,13 +12,12 @@
 * Provide solutions to computationally and memory-intensive tasks.
 * Scale the application to handle larger databases and data sets.
 
-## Style checkers standards:
-* Use the `pylance` package for python (VS code), and use `black` for auto-styling and auto-formatting the code.
+## Style Guidelines:
+* Use Visual Studio Code (VS Code) with the 'Pylance' package for Python. For automatic code formatting use 'black' to ensure consistent styling across the project.
 
 
 ## Code of Conduct:
-
-* Please go through the [Code of Conduct](https://github.com/SE-Fall2024/MovieRecommender/blob/master/CODE_OF_CONDUCT.md) before you begin contributing.
+* Please review the [Code of Conduct](https://github.com/SE-Fall2024/MovieRecommender/blob/master/CODE_OF_CONDUCT.md) before you begin contributing.
 
 ## Pull Request Submission Guidelines
 
