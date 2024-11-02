@@ -30,7 +30,7 @@ Start exploring now and let the magic of movies unfold! 🍿✨
 - [Introduction](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#introduction-%EF%B8%8F)<br>
 - [New Features](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#exciting-new-features-just-for-you-)<br>
 - [Future Project Plan](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#future-scope-)<br> 
-- [Video](https://youtu.be/En4JHLQjXKk)<br>
+- [Demo Video](https://github.com/SE-Fall2024/MovieRecommender/blob/master/README.md#demo-video-%EF%B8%8F)<br>
 - [Working](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#-working-demonstration)<br>
 - [Tech Stack](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#tech-stack-used-)<br>
 - [Requirements and Setup](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#requirements-and-setup-%EF%B8%8F)<br>
