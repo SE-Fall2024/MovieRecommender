@@ -1,6 +1,6 @@
 ## Contributing:
 
-* If you would like to contribute and collaborate for this repository, then please reach out to us through email at spalaku@ncsu.edu
+If you would like to contribute and collaborate for this repository, then please reach out to us through email at spalaku@ncsu.edu
 
 ## Contribution Goals:
 
@@ -13,28 +13,31 @@
 * Scale the application to handle larger databases and data sets.
 
 ## Style Guidelines:
-* Use Visual Studio Code (VS Code) with the 'Pylance' package for Python. For automatic code formatting use 'black' to ensure consistent styling across the project.
+
+Use Visual Studio Code (VS Code) with the 'Pylance' package for Python. For automatic code formatting use 'black' to ensure consistent styling across the project.
 
 
 ## Code of Conduct:
-* Please review the [Code of Conduct](https://github.com/SE-Fall2024/MovieRecommender/blob/master/CODE_OF_CONDUCT.md) before you begin contributing.
 
-## Pull Request Submission Guidelines
+Please review the [Code of Conduct](https://github.com/SE-Fall2024/MovieRecommender/blob/master/CODE_OF_CONDUCT.md) before you begin contributing.
 
-* Installing Git makes contributing to the repository easier
-* To start contributing to the repository make sure you fork the repository first
-* Create a new branch to develop the project 
-* Write code to contribute and commit to create a pull request and merge it with the repository after it passes the CI build check
-* One of the repository administrators will review the Pull request anmd merge the changes
+## Pull Request Process
+
+To submit a pull request:
+* Install Git: Installing Git is recommended to simplify the contribution process.
+* Fork the Repository: Begin by forking this repository to your GitHub account.
+* Create a Branch: Create a new branch for each feature, enhancement, or bug fix.
+* Develop and Commit: Write your code, test it, and commit the changes to your branch.
+* Submit a PR: After verifying that all Continuous Integration (CI) checks pass, submit a pull request.
+* Review and Merge: One of the project administrators will review your pull request and, if approved, merge it into the main branch.
 
 ## Code Style Guide 
 
-* Python language(Version 3.7) has been used to build this project repository
-* Make sure to add the functionalities in the form of modules
-* Any code which is not tested should be committed to the test codes in the code folder. After they are successfully tested, the  main code can be updated.
-* Variable Names should be self-explanatory
-* Comment the code so that a new contributor can understand the functionality of the modules easily
-* `black` is used as linter
+* Programming Language: The project uses Python 3.7.
+* Modular Design: Organize new features or enhancements as individual modules.
+* Naming: Use descriptive names for variables to enhance readability.
+* Commenting: Add comments to explain your code, helping future contributors understand the functionality.
+* Linting: Ensure your code adheres to 'black' formatting standards for consistency.
 
 
 
