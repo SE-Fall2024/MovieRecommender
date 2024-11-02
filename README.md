@@ -188,10 +188,10 @@ JavaScript is a versatile and widely used programming language for adding intera
 ## Documentation 📚
 Refer to Wiki page [here](https://github.com/SE-Fall2024/MovieRecommender/wiki/Documentation)
 
-## Why should you choose Movie Match?
+## Why should you choose Movie Match? 😎
 [![Watch the video](https://markdown-videos-api.jorgenkh.no/youtube/AzeZN4SnnrU )](https://youtu.be/AzeZN4SnnrU) 
 
-## Previous Version of the Application
+## Previous Version of the Application 🖥️
 [![Click here](https://markdown-videos-api.jorgenkh.no/youtube/fKRjYqZlOTY)](https://www.youtube.com/watch?v=fKRjYqZlOTY)
 
 
