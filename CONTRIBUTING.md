@@ -1,16 +1,16 @@
 ## Contributing:
 
-* If you would like to contribute and collaborate for this repository, then please intimate us through email at spalaku@ncsu.edu
+* If you would like to contribute and collaborate for this repository, then please reach out to us through email at spalaku@ncsu.edu
 
-## Purpose of Contributing:
+## Contribution Goals:
 
-* To develop our product and take it to next level.
-* To enhance the already exisiting feature.
-* To make the product more efficient.
-* To resolve critical bugs encountered.
-* Helping the community by delivering a better product.
-* Help us find solutions to computationally/memory intensive processes
-* Help us to scale the system to a larger database
+* Enhance and expand the functionality of our application.
+* Improve existing features to make them more user-friendly.
+* Increase the efficiency and performance of the application.
+* Address and resolve critical bugs or issues.
+* Support the community by making Movie Watch a reliable tool.
+* Provide solutions to computationally and memory-intensive tasks.
+* Scale the application to handle larger databases and data sets.
 
 ## Style checkers standards:
 * Use the `pylance` package for python (VS code), and use `black` for auto-styling and auto-formatting the code.
