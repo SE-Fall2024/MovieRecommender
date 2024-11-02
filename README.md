@@ -81,7 +81,7 @@ Note: Our system can be virtually tested through Github Actions inbuilt feature 
 Make sure you taste your own medicine first and take into account other peoples familiarity with the system before you design your tests.
 
 
-## Video ▶️ 
+## Demo Video ▶️ 
 
 [![Watch the video](https://markdown-videos-api.jorgenkh.no/youtube/En4JHLQjXKk)](https://youtu.be/En4JHLQjXKk)
 
