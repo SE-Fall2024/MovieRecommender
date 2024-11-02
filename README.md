@@ -37,7 +37,7 @@ Start exploring now and let the magic of movies unfold! 🍿✨
 - [Usage](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#usage)<br>
 - [Documentation](https://github.com/SE-Fall2024/MovieRecommender#documentation-)<br>
 - [Why choose Movie Match?](https://github.com/SE-Fall2024/MovieRecommender?tab=readme-ov-file#why-should-you-choose-movie-match-)<br>
-- [Previous version of the application](https://www.youtube.com/watch?v=fKRjYqZlOTY)<br>
+- [Previous version of the application](https://github.com/SE-Fall2024/MovieRecommender/blob/master/README.md#previous-version-of-the-application-%EF%B8%8F)<br>
 - [Bug](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#bug-)<br>
 - [License](https://github.com/SE-Fall2024/MovieRecommender/tree/master?tab=readme-ov-file#license-)
 
